@@ -1,15 +1,20 @@
 require 'spec_helper'
+feature 'Alumni index' do
 
-feature 'Signing up' do
-  scenario 'Successful sign up' do
+  before do
+    Factory(:user, :email => "codefellow@example.com")
+  end
+
+  scenario 'Alumni index page' do
     visit '/'
     click_link 'Sign up'
     fill_in "Email", :with => "user@codefellow.com"
     fill_in "Password", :with => "password"
     fill_in "Password confirmation", :with => "password"
     click_button "Sign up"
-    user = User.find_by_email('user@codefellow.com')
-    page.current_path.should == root_path
-    page.should have_content('You have signed up successfully.')
+    click_link "Home"
+    page.current_path.should == users_path
+    page.should have_content("user@codefellow.com")
   end
+
 end
