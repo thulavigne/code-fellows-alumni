@@ -7,7 +7,6 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
-
 group :test, :development do
   gem 'rspec-rails', '~> 2.11'
   gem 'pry-rails'
@@ -18,9 +17,8 @@ end
 group :test do
   gem 'capybara', '1.1.2'
   gem 'simplecov', :require => false
+  gem 'factory_girl', '2.6.4'
 end
-
-
 
 # Gems used only for assets and not required
 # in production environments by default.

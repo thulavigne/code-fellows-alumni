@@ -1,6 +1,5 @@
 require 'spec_helper'
 feature 'Editing user profile' do
-#need to add factory girl gem and factory for user
 
   before do
     Factory(:user, :email => "codefellow@example.com")
@@ -14,7 +13,8 @@ feature 'Editing user profile' do
     fill_in 'First name', :with => "Thu"
     fill_in 'Last name', :with => "Quach"
     click_button "Update profile"
-    page.should have_content("Profile has not been updated.")
+    page.should have_content("Profile has been updated.")
+    page.should have_content("Thu")
     page.current_url.should == user_url(user)
   end
 
