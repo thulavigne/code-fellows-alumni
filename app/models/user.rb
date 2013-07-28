@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   has_one :address
   has_many :projects
+  has_many :links, :as => :owner
 
   def full_name
     return (self.first_name.nil? ? '' : self.first_name) + ' ' +

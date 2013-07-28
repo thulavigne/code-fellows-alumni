@@ -490,6 +490,7 @@
         null,
         1,
         1,
+        1,
         null,
         1,
         7,
@@ -537,6 +538,7 @@
         null,
         1,
         7,
+        7,
         null,
         null,
         null
@@ -548,10 +550,17 @@
         1,
         null
       ],
+      "/Users/gingergriffis/ruby_projects/code-fellows-alumni/app/models/link.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/gingergriffis/ruby_projects/code-fellows-alumni/app/models/project.rb": [
         1,
         1,
         null,
+        1,
         1,
         null
       ],
@@ -783,6 +792,13 @@
         1,
         null
       ],
+      "/Users/gingergriffis/ruby_projects/code-fellows-alumni/spec/models/link_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
       "/Users/gingergriffis/ruby_projects/code-fellows-alumni/spec/models/project_spec.rb": [
         1,
         null,
@@ -798,6 +814,6 @@
         null
       ]
     },
-    "timestamp": 1374989364
+    "timestamp": 1375037137
   }
 }

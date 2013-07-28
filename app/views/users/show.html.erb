@@ -1,4 +1,5 @@
-<div id="user">
+<div class="container">
+<div id='user'>
   <h2><%= @user.full_name %></h2>
   <p>
     <b>Email:</b>
@@ -29,14 +30,26 @@
     <b>Where is my dream job?</b>
     <%= @user.desired_job_location %>
   </p>
+
+  <p>
+    <b>Contact and reference links:</b>
+  </p>
 </div>
 
+ <div class="row">
+    <div class="span6">
+      <%= render "links/links_form" %>
+    </div>
 
-<ul id='projects'>
-  <% @user.projects.each do |project| %>
-    <li>
-      #<%= project.id %> -
-      <%= link_to project.title, @project %>
-    </li>
-  <% end %>
-</ul>
+    <div class="span6"
+      <ul id='projects'>
+        <% @user.projects.each do |project| %>
+          <li>
+            #<%= project.id %> -
+            <%= link_to project.title, @project %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -14,26 +14,26 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-07-27T22:29:24-07:00">2013-07-27T22:29:24-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-07-28T11:45:37-07:00">2013-07-28T11:45:37-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">91.71%</span></span>
+    (<span class="covered_percent"><span class="green">92.04%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.1
+         1.11
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>35</b> files in total.
-    <b>217</b> relevant lines. 
-    <span class="green"><b>199</b> lines covered</span> and
+    <b>37</b> files in total.
+    <b>226</b> relevant lines. 
+    <span class="green"><b>208</b> lines covered</span> and
     <span class="red"><b>18</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -73,11 +73,11 @@
       <tr>
         <td class="strong"><a href="#6632d75f723b56290e6bb077d82bf774114ea295" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>10</td>
-        <td>4</td>
-        <td>4</td>
+        <td>11</td>
+        <td>5</td>
+        <td>5</td>
         <td>0</td>
-        <td>2.5</td>
+        <td>3.4</td>
       </tr>
       
       <tr>
@@ -111,9 +111,9 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#698f5129d8212d8a08cce01199e9f8c3f6167bb9" class="src_link" title="app/models/project.rb">app/models/project.rb</a></td>
+        <td class="strong"><a href="#71609e43865604dd34a3bff5b657e64f13264e30" class="src_link" title="app/models/link.rb">app/models/link.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>5</td>
+        <td>4</td>
         <td>3</td>
         <td>3</td>
         <td>0</td>
@@ -121,13 +121,23 @@
       </tr>
       
       <tr>
+        <td class="strong"><a href="#698f5129d8212d8a08cce01199e9f8c3f6167bb9" class="src_link" title="app/models/project.rb">app/models/project.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>6</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#844d659fa718ac8a866b0f6ecf3df172f66b1dbf" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>22</td>
-        <td>8</td>
-        <td>8</td>
+        <td>23</td>
+        <td>9</td>
+        <td>9</td>
         <td>0</td>
-        <td>3.4</td>
+        <td>3.1</td>
       </tr>
       
       <tr>
@@ -361,6 +371,16 @@
       </tr>
       
       <tr>
+        <td class="strong"><a href="#6e59704b3c99544416570e085b65c0425f1d5d18" class="src_link" title="spec/models/link_spec.rb">spec/models/link_spec.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>5</td>
+        <td>3</td>
+        <td>3</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#36359263769493af44943fdc1d1bf26a348f9047" class="src_link" title="spec/models/project_spec.rb">spec/models/project_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>5</td>
@@ -577,8 +597,8 @@
     <h3>app/controllers/users_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>4</b> relevant lines. 
-      <span class="green"><b>4</b> lines covered</span> and
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -628,19 +648,25 @@
           <code class="ruby">    @user = User.find(params[:id])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="7" data-linenumber="8">
+          <span class="hits">7</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    @object = @user</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby">end</code>
@@ -758,13 +784,55 @@
   </pre>
 </div>
       
+        <div class="source_table" id="71609e43865604dd34a3bff5b657e64f13264e30">
+  <div class="header">
+    <h3>app/models/link.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>3</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class Link &lt; ActiveRecord::Base</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  attr_accessible :description, :owner, :url_type, :url_text</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  belongs_to :owner, :polymorphic =&gt; true</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
         <div class="source_table" id="698f5129d8212d8a08cce01199e9f8c3f6167bb9">
   <div class="header">
     <h3>app/models/project.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -796,7 +864,13 @@
           <code class="ruby">  belongs_to :user</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  has_many :links, :as =&gt; :owner</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby">end</code>
@@ -811,8 +885,8 @@
     <h3>app/models/user.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>8</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
+      <b>9</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -916,37 +990,43 @@
           <code class="ruby">  has_many :projects</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  has_many :links, :as =&gt; :owner</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
           <code class="ruby">  def full_name</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="19">
+        <li class="covered" data-hits="7" data-linenumber="20">
           <span class="hits">7</span>
           
           <code class="ruby">    return (self.first_name.nil? ? &#39;&#39; : self.first_name) + &#39; &#39; +</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="20">
+        <li class="covered" data-hits="14" data-linenumber="21">
           <span class="hits">14</span>
           
           <code class="ruby">      (self.last_name.nil? ? &#39;&#39; : self.last_name)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby">end</code>
@@ -5162,6 +5242,54 @@
           <span class="hits">1</span>
           
           <code class="ruby">describe Address do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  pending &quot;add some examples to (or delete) #{__FILE__}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="6e59704b3c99544416570e085b65c0425f1d5d18">
+  <div class="header">
+    <h3>spec/models/link_spec.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>3</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;spec_helper&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">describe Link do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
