@@ -1,0 +1,36 @@
+<%= form_for @user do |f| %>
+  <div class="container">
+    <p>
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    </p>
+    <p>
+      <%= f.label :phone_number %><br>
+      <%= f.text_field :phone_number %>
+    </p>
+
+    <div class="row">
+      <div class="span3">
+        <%= f.label :introduction, "What am I about? What is the main thing I want employers to know about me?  What are my strengths?" %><br>
+        <%= f.text_area :introduction %>
+      </div>
+      <div class="span3">
+        <%= f.label :skills, "List all skills relevant to the job you are seeking--this is where all the acronyms go." %><br>
+        <%= f.text_area :skills %>
+      </div>
+      <div class="span3">
+        <%= f.label :desired_job_situation, "What is my dream job? Describe the type of job you are seeking/what type of work you would like to do" %><br>
+        <%= f.text_area :desired_job_situation %>
+      </div>
+      <div class="span3">
+        <%= f.label :desired_job_location, "Where is my dream job? List the locations where you would like or would be willing to work, including your current location if applicable. Be as general or specific as you like" %><br>
+        <%= f.text_area :desired_job_location %>
+      </div>
+    </div>
+  </div>
+  <%= f.submit "Update profile" %>
+<% end %>
