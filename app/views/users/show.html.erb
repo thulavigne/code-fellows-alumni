@@ -33,19 +33,35 @@
       <%= @user.desired_job_location %>
     </p>
   </div>
-
-  <p>
-    <b>Contact/networking/reference/useful links: </b>
-    <%= link_to "Add link", new_user_link_path(@user) %>
-  </p>
 </div>
 
  <div class="row">
     <div class="span6">
+      <p>
+        <b>Contact/networking/reference/useful links: </b>
+        <%= link_to "Add link", new_user_link_path(@user) %>
+      </p>
       <%= render "links/links_form" %>
     </div>
-
     <div class="span6"
+      <p>
+        <b>Projects </b>
+        <%= link_to "Add project", new_project_path %>
+      </p>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <th>Title</th>
+          <th>Description</th>
+         </thead>
+         <tbody>
+           <% @user.projects.each do |p| %>
+             <tr>
+               <td><%= p.title %></td>
+               <td><%= p.description %></td>
+             </tr>
+           <% end %>
+         </tbody>
+      </table>
       <ul id='projects'>
         <% @user.projects.each do |project| %>
           <li>

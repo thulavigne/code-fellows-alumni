@@ -501,6 +501,10 @@
         11,
         22,
         null,
+        null,
+        1,
+        12,
+        null,
         null
       ],
       "/Users/gingergriffis/ruby_projects/code-fellows-alumni/app/controllers/application_controller.rb": [
@@ -628,6 +632,10 @@
         null,
         1,
         1,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/Users/gingergriffis/ruby_projects/code-fellows-alumni/spec/support/factories/project_factory.rb": [
@@ -912,6 +920,6 @@
         null
       ]
     },
-    "timestamp": 1375051036
+    "timestamp": 1375053443
   }
 }
