@@ -1,0 +1,12 @@
+<%= form_for [@object, @link] do |f| %>
+  <p>
+    <%= f.label :url_text, "Url" %><br>
+    <%= f.text_field :url_text %>
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+    <%= f.select :url_type, Link.url_types %>
+  </p>
+  <%= f.submit %>
+<% end %>

@@ -1,7 +1,12 @@
 Alumni::Application.routes.draw do
   devise_for :users
   root :to => 'passthrough#root'
-  resources :users
+  resources :users do
+    resources :links
+  end
+  resources :projects do
+    resources :links
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
