@@ -1,19 +1,16 @@
 require 'spec_helper'
 feature 'Viewing user profile' do
-#need to add factory girl gem and factory for user
+
+  let(:user) {Factory(:user, :email => "ginger@example.com")}
+
   before do
-    Factory(:user, :email => "codefellow@example.com")
+    Factory(:user, :email => "george@example.com")
   end
 
   scenario 'Viewing user profile via signing in' do
-    User.find_by_email('codefellow@example.com')
-    visit '/'
-    click_link 'Sign in'
-    fill_in 'Email', :with => "codefellow@example.com"
-    fill_in 'Password', :with => "password"
-    click_button "Sign in"
-    page.should have_content("codefellow@example.com")
-    page.current_url.should == user_url(user)
+    visit(user_path(user))
+    page.should have_content("ginger@example.com")
+    page.should_not have_content("george@example.com")
   end
 
 end

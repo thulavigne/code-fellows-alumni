@@ -6,14 +6,14 @@ feature 'Signing in' do
   end
 
   scenario 'Signing in via form' do
-    User.find_by_email('codefellow@example.com')
+    @user = User.find_by_email('codefellow@example.com')
     visit '/'
     click_link 'Sign in'
     fill_in 'Email', :with => "codefellow@example.com"
     fill_in 'Password', :with => "password"
     click_button "Sign in"
     page.should have_content("Signed in successfully.")
-    page.current_url.should == user_url(user)
+    page.current_path.should == user_path(@user)
   end
 
 end

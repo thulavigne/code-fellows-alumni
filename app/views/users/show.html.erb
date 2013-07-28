@@ -1,0 +1,42 @@
+<div id="user">
+  <h2><%= @user.full_name %></h2>
+  <p>
+    <b>Email:</b>
+    <%= @user.email %>
+  </p>
+
+  <p>
+    <b>Phone number:</b>
+    <%= @user.phone_number %>
+  </p>
+
+  <p>
+    <b>What am I about?</b>
+    <%= @user.introduction %>
+  </p>
+
+  <p>
+    <b>Skills:</b>
+    <%= @user.skills %>
+  </p>
+
+  <p>
+    <b>What is my dream job?</b>
+    <%= @user.desired_job_situation %>
+  </p>
+
+  <p>
+    <b>Where is my dream job?</b>
+    <%= @user.desired_job_location %>
+  </p>
+</div>
+
+
+<ul id='projects'>
+  <% @user.projects.each do |project| %>
+    <li>
+      #<%= project.id %> -
+      <%= link_to project.title, @project %>
+    </li>
+  <% end %>
+</ul>

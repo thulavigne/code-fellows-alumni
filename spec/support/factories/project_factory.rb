@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :project do
-    name "name"
-    description "Codefellow project"
+    title "Codefellow project"
+    description "Create a Codefellow alumni website"
   end
 end
