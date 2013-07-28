@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
     return (self.first_name.nil? ? '' : self.first_name) + ' ' +
       (self.last_name.nil? ? '' : self.last_name)
   end
+
+  def ordered_links
+    return self.links.sort_by { |link| link.url_type}
+  end
 end

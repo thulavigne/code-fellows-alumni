@@ -6,7 +6,7 @@
       <th>Link Description</th>
      </thead>
      <tbody>
-       <% @object.links.each do |link| %>
+       <% @object.ordered_links.each do |link| %>
          <tr>
            <td><%= link.url_text %></td>
            <td><%= link.url_type %></td>
