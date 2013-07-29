@@ -3,4 +3,8 @@ class Project < ActiveRecord::Base
 
   belongs_to :user
   has_many :links, :as => :owner
+
+  def ordered_links
+    return self.links.sort_by { |link| link.url_type}
+  end
 end

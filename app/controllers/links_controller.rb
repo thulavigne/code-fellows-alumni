@@ -19,7 +19,6 @@ class LinksController < ApplicationController
 
 private
   def find_object
-    #binding.pry
     a_hash = params.select {|e| /_id/ =~ e}
     an_array = a_hash.first
     a_class = an_array.first.chomp("_id").capitalize.constantize
