@@ -16,11 +16,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Code Fellows Alumni</a>
+        <a class="brand" href="/">Code Fellows Alumni</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
+            <li><%= link_to "Home", root_path %></li>
           </ul>
         </div>
       </div>
@@ -28,6 +27,19 @@
   </div>
 
   <div class="container-fluid">
+    <div style="float:right; padding-right:15px;">
+    <% if user_signed_in? %>
+        Signed in as <%= current_user.email %>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <% admins_only do %>
+          <%= link_to "Admin", admin_root_path %>
+        <% end %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> |
+        <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+    </div>
+
     <% flash.each do |key, value| %>
       <div class='flash' id='<%= key %>'>
         <%= value %>
