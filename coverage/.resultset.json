@@ -522,6 +522,9 @@
       ],
       "/Users/Thu/alumni/app/helpers/application_helper.rb": [
         1,
+        1,
+        0,
+        null,
         null
       ],
       "/Users/Thu/alumni/app/helpers/users_helper.rb": [
@@ -580,8 +583,8 @@
       "/Users/Thu/alumni/app/controllers/passthrough_controller.rb": [
         1,
         1,
-        0,
-        0,
+        1,
+        1,
         null,
         0,
         null,
@@ -591,6 +594,7 @@
       "/Users/Thu/alumni/app/controllers/users_controller.rb": [
         1,
         1,
+        1,
         null,
         1,
         null,
@@ -614,6 +618,14 @@
         null,
         null,
         1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
         1,
         0,
         null,
@@ -651,9 +663,16 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        0,
+        0,
+        null,
+        null,
         null
       ]
     },
-    "timestamp": 1375057879
+    "timestamp": 1375133545
   }
 }

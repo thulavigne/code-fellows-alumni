@@ -4,6 +4,7 @@ feature 'Viewing user profile' do
   let(:user) {Factory(:user, :email => "ginger@example.com")}
 
   before do
+    sign_in_as!(Factory(:admin_user))
     Factory(:user, :email => "george@example.com")
   end
 
