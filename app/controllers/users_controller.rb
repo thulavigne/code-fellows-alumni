@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   before_filter :find_user, :only => [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
+    @users = User.all
   end
 
   def show
@@ -23,7 +25,6 @@ class UsersController < ApplicationController
 
 
 private
-
   def find_user
     @user = User.find(params[:id])
   end
