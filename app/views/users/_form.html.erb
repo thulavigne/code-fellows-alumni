@@ -1,5 +1,13 @@
-<%= form_for @user do |f| %>
+<%= form_for @user, :html => { :multipart => true } do |f| %>
   <div class="container">
+    <p>
+      <b>Picture</b><br/>
+      <%= f.file_field :avatar %>
+    </p>
+    <p>
+      <b>Attachment</b><br/>
+      <%= f.file_field :attach %>
+    </p>
     <p>
       <%= f.label :first_name %><br>
       <%= f.text_field :first_name %>

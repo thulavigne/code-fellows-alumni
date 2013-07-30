@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     @object = @user
   end
 
+  def create
+    @user = User.create( params[:user] )
+  end
+
   def edit
   end
 
