@@ -32,6 +32,13 @@ class LinksController < ApplicationController
     end
   end
 
+  def destroy
+    @link = Link.find(params[:id])
+    @link.destroy
+    flash[:notice] = "Link has been deleted"
+    redirect_to @link.owner
+  end
+
 private
   def find_object
     a_hash = params.select {|e| /_id/ =~ e}
