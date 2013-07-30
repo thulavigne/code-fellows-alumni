@@ -5,7 +5,13 @@
     <%= @project.description %>
   </p>
 </div>
-
+<div>
+  <% if @project.attach.exists? then %>
+    <b>Screenshot</b></br>
+    <%= image_tag @project.attach.url %>
+  <% end %>
+</div>
+</br>
  <div class="row">
   <div class="span6">
     <p>

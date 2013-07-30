@@ -9,14 +9,13 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation,
     :remember_me, :first_name, :last_name, :phone_number,
     :introduction, :desired_job_situation, :desired_job_location,
-    :skills, :avatar, :attach
+    :skills, :avatar
   # attr_accessible :title, :body
 
   has_one :address
   has_many :projects
   has_many :links, :as => :owner
   has_attached_file :avatar, :styles => { :medium => "200x200>", :thumb => "100x100>" }, :default_url => "http://pickaface.net/avatar/ppic.jpg"
-  has_attached_file :attach
 
   def full_name
     return (self.first_name.nil? ? '' : self.first_name) + ' ' +
