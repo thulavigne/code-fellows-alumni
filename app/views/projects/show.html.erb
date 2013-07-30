@@ -10,7 +10,9 @@
   <div class="span6">
     <p>
       <b>Project links: </b>
-      <%= link_to "Add link", new_project_link_path(@object) %>
+      <% if user_signed_in? %>
+        <%= link_to "Add link", new_project_link_path(@object) %>
+      <% end %>
     </p>
     <%= render "links/links_form" %>
   </div>

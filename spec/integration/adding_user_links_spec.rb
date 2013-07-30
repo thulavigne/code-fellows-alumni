@@ -13,7 +13,7 @@ feature 'Adding a user link to a user profile' do
   end
 
   scenario 'Add a link to a user' do
-    fill_in 'Url', :with => "https://github.com/ggriffis"
+    fill_in 'Full URL with http/https', :with => "https://github.com/ggriffis"
     fill_in 'Description', :with => "My github account"
     page.select 'Code Repository', :from => 'link_url_type'
     click_button "Create Link"

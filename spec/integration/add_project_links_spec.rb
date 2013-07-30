@@ -20,7 +20,7 @@ feature 'Adding a link to a project' do
   end
 
   scenario 'Add a link to a project' do
-    fill_in 'Url', :with => "https://github.com/ggriffis/some-project.git"
+    fill_in 'Full URL with http/https', :with => "https://github.com/ggriffis/some-project.git"
     fill_in 'Description', :with => "My project github account"
     page.select 'Code Repository', :from => 'link_url_type'
     click_button "Create Link"
