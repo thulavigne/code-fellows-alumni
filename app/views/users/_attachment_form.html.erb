@@ -1,4 +1,4 @@
-<%= form_for @object do |f| %>
+<%= form_for @user do |f| %>
   <table class="table table-striped table-bordered">
     <thead>
       <th>Url</th>
@@ -8,13 +8,12 @@
      <tbody>
        <% @object.ordered_links.each do |link| %>
          <tr>
-           <td class="link_column"><a href=<%= link.url_text %> target="_blank"><%= link.url_text %></a>
+           <td><a href=<%= link.url_text %> target="_blank"><%= link.url_text %></a>
            <td><%= link.url_type %></td>
            <td><%= link.description %></td>
            <% if user_signed_in? %>
-            <td><%= link_to 'Edit',
-              send("edit_#{@object.class.to_s.underscore}_link_path", @object, link) %></td>
-            <td><%= link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_link_path(link) %></td>
+            <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
            <% end %>
          </tr>
        <% end %>
