@@ -8,9 +8,13 @@
      <tbody>
        <% @object.ordered_links.each do |link| %>
          <tr>
-           <td><%= link.url_text %></td>
+           <td><a href=<%= link.url_text %> target="_blank"><%= link.url_text %></a>
            <td><%= link.url_type %></td>
            <td><%= link.description %></td>
+           <% if user_signed_in? %>
+            <td><%= link_to 'Edit', edit_link_path(link) %></td>
+            <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+           <% end %>
          </tr>
        <% end %>
      </tbody>

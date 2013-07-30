@@ -1,52 +1,58 @@
 <div class="container">
-<div id='user'>
+
   <h2><%= @user.full_name %></h2>
+  <%= " " + @user.email%>&nbsp; &nbsp; &nbsp; &nbsp;<%= @user.phone_number %><br><br>
+  <% if user_signed_in? %>
     <%= link_to "Edit Profile", edit_user_path(@user) %>
-  <p>
-    <b>Email:</b>
-    <%= @user.email %>
-  </p>
+  <% end %>
 
-  <p>
-    <b>Phone number:</b>
-    <%= @user.phone_number %>
-  </p>
 
-  <div class="modal-body">
-    <p>
-      <b>What am I about?</b>
-      <%= @user.introduction %>
-    </p>
+  <div class="row">
+    <div class="span3">
+      <p>
+        <b>What am I about?</b><br>
+        <%= @user.introduction %>
+      </p>
+    </div>
 
-    <p>
-      <b>Skills:</b>
-      <%= @user.skills %>
-    </p>
+    <div class="span3">
+      <p>
+        <b>Skills:</b><br>
+        <%= @user.skills %>
+      </p>
+    </div>
 
-    <p>
-      <b>What is my dream job?</b>
-      <%= @user.desired_job_situation %>
-    </p>
+    <div class="span3">
+      <p>
+        <b>What is my dream job?</b><br>
+        <%= @user.desired_job_situation %>
+      </p>
+    </div>
 
-    <p>
-      <b>Where is my dream job?</b>
-      <%= @user.desired_job_location %>
-    </p>
-  </div>
-</div>
+    <div class="span3">
+      <p>
+        <b>Where is my dream job?</b><br>
+        <%= @user.desired_job_location %>
+      </p>
+    </div>
+  </div><br><br>
 
- <div class="row">
+  <div class="row">
     <div class="span6">
       <p>
         <b>Contact/networking/reference/useful links: </b>
-        <%= link_to "Add link", new_user_link_path(@user) %>
+        <% if user_signed_in? %>
+          <%= link_to "Add link", new_user_link_path(@user) %>
+        <% end %>
       </p>
       <%= render "links/links_form" %>
     </div>
     <div class="span6"
       <p>
         <b>Projects </b>
-        <%= link_to "Add project", new_project_path %>
+        <% if user_signed_in? %>
+          <%= link_to "Add project", new_project_path %>
+        <% end %>
       </p>
       <table class="table table-striped table-bordered">
         <thead>
@@ -58,6 +64,10 @@
              <tr>
                <td><%= link_to p.title, project_path(p) %></td>
                <td><%= p.description %></td>
+               <% if user_signed_in? %>
+                 <td><%= link_to 'Edit', edit_project_path(p) %></td>
+                 <td><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+               <% end %>
              </tr>
            <% end %>
          </tbody>
