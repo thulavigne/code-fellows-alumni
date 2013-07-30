@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
 
   belongs_to :user
   has_many :links, :as => :owner
-  has_attached_file :attach
+  has_attached_file :attach, :default_url => "http://pickaface.net/avatar/ppic.jpg"
 
   validates_presence_of :title
 

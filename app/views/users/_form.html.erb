@@ -1,51 +1,42 @@
 <%= form_for @user, :html => { :multipart => true } do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="container">
-    <div class="row">
-      <div class="span3">
-        <p>
-          <b>Picture</b><br/>
-          <%= f.file_field :avatar %>
-        </p>
-      </div>
-      <div class="span3">
-        <p>
-          <%= f.label :first_name %><br>
-          <%= f.text_field :first_name %>
-        </p>
-      </div>
-      <div class="span3">
-        <p>
-          <%= f.label :last_name %><br>
-          <%= f.text_field :last_name %>
-        </p>
-      </div>
-      <div class="span3">
-        <p>
-          <%= f.label :phone_number %><br>
-          <%= f.text_field :phone_number %>
-        </p>
-      </div>
-    <div class="row">
-      <div class="span6">
+    <div class="column">
+      <p>
+        <b>Profile Picture</b><br/>
+          <%= f.file_field :avatar %></br>
+          <%= image_tag @user.avatar.url(:medium) %>
+      </p>
+      <p>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </p>
+      <p>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </p>
+      <p>
+        <%= f.label :phone_number %>
+        <%= f.text_field :phone_number %></br>
+      </p>
+        <%= f.submit "Update profile" %>
+    </div>
+
+      <div class="span8">
         <%= f.label :introduction %>
         <%= f.text_area :introduction, :placeholder => "What am I about? What is the main thing I want employers to know about me?  What are my strengths?" %>
       </div>
-      <div class="span6">
+      <div class="span8">
         <%= f.label :skills %>
         <%= f.text_area :skills, :placeholder => "List all skills relevant to the job you are seeking--this is where all the acronyms go." %>
       </div>
-    </div>
-    <div class="row">
-      <div class="span6">
+      <div class="span8">
         <%= f.label :desired_job_situation %>
         <%= f.text_area :desired_job_situation, :placeholder => "What is my dream job? Describe the type of job you are seeking/what type of work you would like to do" %>
       </div>
-      <div class="span6">
+      <div class="span8">
         <%= f.label :desired_job_location %>
         <%= f.text_area :desired_job_location, :placeholder => "Where is my dream job? List the locations where you would like or would be willing to work, including your current location if applicable. Be as general or specific as you like" %>
       </div>
-    </div>
   </div>
-  <%= f.submit "Update profile" %>
 <% end %>
