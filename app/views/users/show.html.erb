@@ -5,11 +5,11 @@
   <h2><%= @user.full_name %></h2>
   <%= " " + @user.email%>&nbsp; &nbsp; &nbsp; &nbsp;<%= @user.phone_number %><br><br>
 
-  <div>
-      <%= image_tag @user.avatar.url(:medium) %>
-  </div>
 </br>
   <div class="row">
+    <div class="span3">
+      <%= image_tag @user.avatar.url(:medium) %>
+    </div>
     <div class="span3">
       <p>
         <b>What am I about?</b><br>
@@ -17,21 +17,21 @@
       </p>
     </div>
 
-    <div class="span3">
+    <div class="span2">
       <p>
         <b>Skills:</b><br>
         <%= @user.skills %>
       </p>
     </div>
 
-    <div class="span3">
+    <div class="span2">
       <p>
         <b>What is my dream job?</b><br>
         <%= @user.desired_job_situation %>
       </p>
     </div>
 
-    <div class="span3">
+    <div class="span2">
       <p>
         <b>Where is my dream job?</b><br>
         <%= @user.desired_job_location %>
