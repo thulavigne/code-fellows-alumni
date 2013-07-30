@@ -23,6 +23,7 @@
             <li><%= link_to "Alumni", users_path %></li>
             <% if user_signed_in? %>
               <li><%= link_to "My Profile", current_user %></li>
+              <li><%= link_to "My Projects", projects_path %></li>
             <% end %>
           </ul>
         </div>
@@ -30,7 +31,7 @@
     </div>
   </div>
 
-  <div class="container-fluid">
+  <div class="container">
     <div style="float:right; padding-right:15px;">
     <% if user_signed_in? %>
         Signed in as <%= current_user.email %> |

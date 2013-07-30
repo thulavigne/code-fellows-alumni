@@ -2,8 +2,9 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="container">
     <p>
-      <b>Picture</b><br/>
-      <%= f.file_field :avatar %>
+      <b>Profile Picture</b><br/>
+      <%= f.file_field :avatar %></br>
+      <%= image_tag @user.avatar.url(:medium) %>
     </p>
     <p>
       <%= f.label :first_name %><br>
