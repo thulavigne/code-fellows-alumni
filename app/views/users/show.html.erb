@@ -1,10 +1,9 @@
 <div class="container">
-
-  <h2><%= @user.full_name %></h2>
-  <%= " " + @user.email%>&nbsp; &nbsp; &nbsp; &nbsp;<%= @user.phone_number %><br><br>
   <% if user_signed_in? %>
     <%= link_to "Edit Profile", edit_user_path(@user) %>
   <% end %>
+  <h2><%= @user.full_name %></h2>
+  <%= " " + @user.email%>&nbsp; &nbsp; &nbsp; &nbsp;<%= @user.phone_number %><br><br>
 
   <div>
       <%= image_tag @user.avatar.url(:medium) %>
