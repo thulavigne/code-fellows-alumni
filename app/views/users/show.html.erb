@@ -69,7 +69,7 @@
                <td><%= p.description %></td>
                <% if user_signed_in? %>
                  <td><%= link_to 'Edit', edit_project_path(p) %></td>
-                 <td><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                 <td><%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                <% end %>
              </tr>
            <% end %>

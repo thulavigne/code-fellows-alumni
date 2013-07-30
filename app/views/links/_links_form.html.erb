@@ -14,7 +14,7 @@
            <% if user_signed_in? %>
             <td><%= link_to 'Edit',
               send("edit_#{@object.class.to_s.underscore}_link_path", @object, link) %></td>
-            <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
            <% end %>
          </tr>
        <% end %>

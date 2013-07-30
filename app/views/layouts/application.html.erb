@@ -21,6 +21,9 @@
           <ul class="nav">
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Alumni", users_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "My Profile", current_user %></li>
+            <% end %>
           </ul>
         </div>
       </div>
