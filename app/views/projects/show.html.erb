@@ -1,0 +1,17 @@
+<div id="project">
+  <h2><%= @project.title %></h2>
+  <p>
+    <b>Description:</b>
+    <%= @project.description %>
+  </p>
+</div>
+
+ <div class="row">
+  <div class="span6">
+    <p>
+      <b>Project links: </b>
+      <%= link_to "Add link", new_project_link_path(@object) %>
+    </p>
+    <%= render "links/links_form" %>
+  </div>
+</div>
