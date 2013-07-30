@@ -2,7 +2,8 @@ require 'spec_helper'
 feature 'Editing user profile' do
 
   before do
-    Factory(:user, :email => "codefellow@example.com", :first_name => "Ginger",
+    Factory(:user, :email => "codefellow@example.com",
+                              :first_name => "Ginger",
                               :last_name => "Griffis")
     visit '/'
     click_link 'Sign in'

@@ -1,6 +1,6 @@
 require 'spec_helper'
 feature 'Signing in' do
-#need to add factory girl gem and factory for user
+
   before do
     Factory(:user, :email => "codefellow@example.com")
   end
