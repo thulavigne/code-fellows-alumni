@@ -10,4 +10,9 @@ class Project < ActiveRecord::Base
   def ordered_links
     return self.links.sort_by { |link| link.url_type}
   end
+
+  def associated_user
+    return self.user
+  end
+
 end

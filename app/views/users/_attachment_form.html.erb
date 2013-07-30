@@ -11,7 +11,7 @@
            <td><a href=<%= link.url_text %> target="_blank"><%= link.url_text %></a>
            <td><%= link.url_type %></td>
            <td><%= link.description %></td>
-           <% if user_signed_in? %>
+           <% if @user == current_user %>
             <td><%= link_to 'Edit', edit_link_path(link) %></td>
             <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
            <% end %>

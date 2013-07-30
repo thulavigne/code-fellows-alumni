@@ -16,4 +16,5 @@ class Link < ActiveRecord::Base
       "Other"
     ]
   end
+
 end

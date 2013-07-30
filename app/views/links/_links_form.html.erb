@@ -8,10 +8,11 @@
      <tbody>
        <% @object.ordered_links.each do |link| %>
          <tr>
-           <td class="link_column"><a href=<%= link.url_text %> target="_blank"><%= link.url_text %></a>
+           <td class="link_column"><%= link_to link.url_text,
+              link.url_text, :target => "_blank" %>
            <td><%= link.url_type %></td>
-           <td><%= link.description %></td>
-           <% if user_signed_in? %>
+           <td class="link_description_column"><%= link.description %></td>
+           <% if @object.associated_user == current_user %>
             <td><%= link_to 'Edit',
               send("edit_#{@object.class.to_s.underscore}_link_path", @object, link) %></td>
             <td><%= link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>

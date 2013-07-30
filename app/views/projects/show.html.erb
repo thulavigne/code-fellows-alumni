@@ -16,7 +16,7 @@
   <div class="span6">
     <p>
       <b>Project links: </b>
-      <% if user_signed_in? %>
+      <% if current_user == @project.user %>
         <%= link_to "Add link", new_project_link_path(@object) %>
       <% end %>
     </p>
