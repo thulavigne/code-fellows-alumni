@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
   has_many :links, :as => :owner
   has_attached_file :attach
 
+  validates_presence_of :title
+
   def ordered_links
     return self.links.sort_by { |link| link.url_type}
   end
