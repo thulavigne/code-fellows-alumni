@@ -1,4 +1,5 @@
 <%= form_for [@object, @link] do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <p>
     <%= f.label :url_text, "Full URL with http/https" %><br>
     <%= f.text_field :url_text %>

@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+en:
+  activerecord:
+    attributes:
+      link:
+        url_text: URL address

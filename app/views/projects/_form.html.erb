@@ -1,4 +1,5 @@
 <%= form_for [@project] do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>

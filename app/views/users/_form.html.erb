@@ -1,4 +1,5 @@
 <%= form_for @user, :html => { :multipart => true } do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="container">
     <p>
       <b>Picture</b><br/>
