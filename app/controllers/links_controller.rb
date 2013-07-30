@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_filter :find_object, :only => [:new, :create]
+  before_filter :find_object, :only => [:new, :create, :edit]
 
   def new
     @link = @object.links.build
@@ -14,6 +14,21 @@ class LinksController < ApplicationController
     else
       flash[:alert] = "Link has not been added."
       render :action => "new"
+    end
+  end
+
+  def edit
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = Link.find(params[:id])
+    if @link.update_attributes(params[:link])
+      flash[:notice] = "Link has been updated."
+      redirect_to @link.owner
+    else
+      flash[:alert] = "Link has not been updated."
+      render :action => "edit"
     end
   end
 
