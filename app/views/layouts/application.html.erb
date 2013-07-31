@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Alumni</title>
+  <title>Code Fellows Alumni</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -16,33 +17,28 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="/">Code Fellows Alumni</a>
-        <div class="nav-collapse">
+        <a class="brand" href="/"><img class="logo" src="https://www.codefellows.org/assets/logo-9b9c2ba71305e3452de1acbd515ee606.png"></a>
+        <div class="nav-collapse" style="float:right;">
           <ul class="nav">
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Alumni", users_path %></li>
             <% if user_signed_in? %>
               <li><%= link_to "My Profile", current_user %></li>
               <li><%= link_to "My Projects", projects_path %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+              <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
             <% end %>
           </ul>
         </div>
       </div>
     </div>
   </div>
-
+<% if user_signed_in? %>
+<p style="float:right; padding-right:80px;">Signed in as <%= current_user.email %></p>
+<% end %>
   <div class="container">
-    <div style="float:right; padding-right:15px;">
-    <% if user_signed_in? %>
-        Signed in as <%= current_user.email %> |
-        <%= link_to "My Profile", current_user %> |
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> |
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
-    </div>
-
     <% flash.each do |key, value| %>
       <div class='flash' id='<%= key %>'>
         <%= value %>

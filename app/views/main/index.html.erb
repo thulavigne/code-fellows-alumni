@@ -17,7 +17,7 @@
           <% if !@random_project.nil? %>
             <%= "Project I have worked on: " %><br>
             <%= link_to @random_project.title.to_s, @random_project %><br>
-            <%= image_tag @random_project.attach.url(:medium) %><br>
+            <%= image_tag @random_project.attach.url %><br>
           <% end %>
         </div>
       <% end %>
