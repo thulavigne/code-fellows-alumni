@@ -1,7 +1,10 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.all
+    @projects = current_user.projects
+    if !@projects.empty?
+      @user = @projects.first.user
+    end
   end
 
   def new
