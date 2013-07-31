@@ -6,23 +6,18 @@
     </div>
   </center>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="span3">
-      <%= link_to image_tag("codefellows_badge.png"),
-          "https://www.codefellows.org/", :target => "_blank" %>
-      <p>
-        <b>Hello employers and entrepreneurs!</b>
-      </p>
-      <p>
-        Use this website to search for technology professionals who have successfully completed our bootcamp programs.  We have personally trained and vetted these individuals and stand behind them 100%.
-      </p>
-      <p>
-        <b>Hello Codefellow alumni!</b>
-      </p>
-      <p> Use this website to showcase your skills and talents to potential employers and share projects you have worked on.
-      </p>
-    </div>
+<div class="home_section">
+  <h1>Are you an employer?</h1>
+    <p>
+      Use this website to search for technology professionals who have successfully completed the Code Fellows coding bootcamps.</br>
+      We have personally trained and vetted these individuals and stand behind them 100%.
+    </p>
+  </br>
+  <h1>Are you a Code Fellows alumnus/alumna?</h1>
+    <p>
+      Use this website to showcase your skills and talents to potential employers and share projects you have worked on.
+    </p>
+</div>
       <% if !@random_user.nil? %>
         <div class="span4">
           <h4><%= "Check out Codefellow Alum, " %></h4>
