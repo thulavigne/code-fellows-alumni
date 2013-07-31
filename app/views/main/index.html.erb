@@ -1,6 +1,12 @@
+<div class="welcome">
+  <center>
+    <div class="welcome_block">
+      <h2 class="welcome_h2">Welcome to Codefellows Alumni Website</h2>
+      <p style="font-size:25px; line-height:35px;">Sign up to be featured as one of the many technology professionals who successfully completed the Code Fellows coding bootcamps.</h4>
+    </div>
+  </center>
+</div>
 <div class="container">
-<h2>Welcome to Codefellows Alumni Showcase!</h2>
-
   <div class="row">
     <div class="span3">
       <%= link_to image_tag("codefellows_badge.png"),
@@ -18,7 +24,7 @@
           <%= image_tag @random_user.avatar.url(:medium) %><br>
           <%= @random_user.introduction %><br><br>
           <% if !@random_project.nil? %>
-            <%= "Project I have worked on: " %><br>
+            <h4><%= "Project I have worked on: " %></h4><br>
             <%= link_to @random_project.title.to_s, @random_project %><br>
             <%= image_tag @random_project.attach.url %><br>
           <% end %>
