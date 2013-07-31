@@ -36,8 +36,10 @@
     </div>
   </div>
 <% if user_signed_in? %>
-<p style="float:right; padding-right:80px;">Signed in as <%= current_user.email %></p>
+<p style="float:right; padding-right:80px;">Signed in as <%= current_user.email %> </p>
 <% end %>
+&nbsp;&nbsp;
+<%= link_to "Back", :back %>
   <div class="container">
     <% flash.each do |key, value| %>
       <div class='flash' id='<%= key %>'>

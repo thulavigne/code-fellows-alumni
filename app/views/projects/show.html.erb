@@ -21,7 +21,7 @@
   <div class="span6">
     <p>
       <b>Project links: </b>
-      <% if current_user == @project.user %>
+      <% if current_user == @project.user %>&nbsp;&nbsp;
         <%= link_to "Add link", new_project_link_path(@object) %>
       <% end %>
     </p>
