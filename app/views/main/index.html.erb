@@ -1,10 +1,28 @@
 <div class="container">
-<h2>View All Code Fellows Alumni Profiles</h2>
+<h2>Welcome to Codefellows Alumni Showcase!</h2>
 
-<ul>
-  <% @users.each do |user| %>
-    <li><%= image_tag user.avatar.url(:small) %></li>
-    <li><%= link_to user.first_name, user %></li>
-  <% end %>
-</ul>
+  <div class="row">
+    <div class="span3">
+      <img src="https://www.codefellows.org/assets/logo-9b9c2ba71305e3452de1acbd515ee606.png" alt="codefellows logo">
+      <p>
+        "some text about codefellows and this website"
+      </p>
+    </div>
+      <% if !@random_user.nil? %>
+        <div class="span4">
+          <%= image_tag @random_user.avatar.url(:medium) %><br>
+          <%= @random_user.first_name.to_s + " " +
+              @random_user.last_name.to_s %><br>
+          <%= @random_user.introduction %>
+        </div>
+      <% end %>
+    <div class="span5">
+      <ul>
+        <% @users.each do |user| %>
+          <li><%= image_tag user.avatar.url(:small) %></li>
+          <li><%= link_to user.first_name, user %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
