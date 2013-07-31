@@ -25,9 +25,9 @@
           <%= image_tag @random_user.avatar.url(:medium) %><br>
           <%= @random_user.introduction %><br><br>
           <% if !@random_project.nil? %>
-            <h4><%= "Project I have worked on: " %><h4>
-            <h4><%= link_to @random_project.title.to_s, @random_project %></h4>
-            <%= image_tag @random_project.attach.url(:medium) %><br>
+            <%= "Project I have worked on: " %><br>
+            <%= link_to @random_project.title.to_s, @random_project %><br>
+            <%= image_tag @random_project.attach.url %><br>
           <% end %>
         </div>
       <% end %>
