@@ -16,13 +16,18 @@
           <%= @random_user.introduction %>
         </div>
       <% end %>
-    <div class="span5">
-      <ul>
-        <% @users.each do |user| %>
-          <li><%= image_tag user.avatar.url(:small) %></li>
-          <li><%= link_to user.first_name, user %></li>
-        <% end %>
-      </ul>
+      <div class="span5">
+        <table class="table">
+           <tbody>
+             <% @users.each do |user| %>
+               <tr>
+                 <td><%= image_tag user.avatar.url(:small) %>
+                 <td><%= link_to user.first_name.to_s +
+                        " " + user.last_name.to_s, user %></td>
+               </tr>
+             <% end %>
+           </tbody>
+        </table>
     </div>
   </div>
 </div>
