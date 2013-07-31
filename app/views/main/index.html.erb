@@ -10,9 +10,10 @@
     </div>
       <% if !@random_user.nil? %>
         <div class="span4">
-          <%= image_tag @random_user.avatar.url(:medium) %><br>
+          <b><%= "Check out Codefellow Alum, " %></b>
           <%= link_to @random_user.first_name.to_s +
                 " " + @random_user.last_name.to_s, @random_user %><br>
+          <%= image_tag @random_user.avatar.url(:medium) %><br>
           <%= @random_user.introduction %><br><br>
           <% if !@random_project.nil? %>
             <%= "Project I have worked on: " %><br>
