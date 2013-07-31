@@ -35,6 +35,22 @@ feature 'Valid access when signed in' do
     page.should have_content("Add link")
   end
 
+  scenario 'Can delete a link from my project' do
+    click_link "Add project"
+    fill_in 'Title', :with => "interesting project"
+    fill_in 'Description',
+      :with => "this project does some really interesting things"
+    click_button "Create Project"
+    project = Project.find_by_title("interesting project")
+    visit(project_path(project))
+    click_link "Add link"
+    fill_in 'Full URL with http/https', :with => "https://github.com/ggriffis"
+    fill_in 'Description', :with => "My github account"
+    page.select 'Code Repository', :from => 'link_url_type'
+    click_button "Create Link"
+    page.should have_content("Delete") #should refactor to look for just link edit
+  end
+
   scenario 'Can edit a project on my profile' do
     click_link "Add project"
     fill_in 'Title', :with => "interesting project"
@@ -45,6 +61,18 @@ feature 'Valid access when signed in' do
     project = Project.find_by_title("interesting project")
     visit(project_path(project))
     page.should have_link("Edit")
+  end
+
+  scenario 'Can delete a project from my profile' do
+    click_link "Add project"
+    fill_in 'Title', :with => "interesting project"
+    fill_in 'Description',
+      :with => "this project does some really interesting things"
+    click_button "Create Project"
+    page.should have_link("Delete") #need to refactor to look just for project edit
+    project = Project.find_by_title("interesting project")
+    visit(project_path(project))
+    page.should have_link("Delete")
   end
 
   scenario "Cannot edit someone else's profile" do
