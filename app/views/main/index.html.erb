@@ -13,10 +13,10 @@
           <%= image_tag @random_user.avatar.url(:medium) %><br>
           <%= link_to @random_user.first_name.to_s +
                 " " + @random_user.last_name.to_s, @random_user %><br>
-          <%= @random_user.introduction %><br>
+          <%= @random_user.introduction %><br><br>
           <% if !@random_project.nil? %>
-            <h2><%= "Project I have worked on: " +
-                    " " + @random_project.title.to_s %><h2>
+            <%= "Project I have worked on: " %><br>
+            <%= link_to @random_project.title.to_s, @random_project %><br>
             <%= image_tag @random_project.attach.url(:medium) %><br>
           <% end %>
         </div>
