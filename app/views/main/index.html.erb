@@ -10,14 +10,14 @@
     </div>
       <% if !@random_user.nil? %>
         <div class="span4">
-          <b><%= "Check out Codefellow Alum, " %></b>
-          <%= link_to @random_user.first_name.to_s +
-                " " + @random_user.last_name.to_s, @random_user %><br>
+          <h4><%= "Check out Codefellow Alum, " %></h4>
+          <h4><%= link_to @random_user.first_name.to_s +
+                " " + @random_user.last_name.to_s, @random_user %></h4>
           <%= image_tag @random_user.avatar.url(:medium) %><br>
           <%= @random_user.introduction %><br><br>
           <% if !@random_project.nil? %>
-            <%= "Project I have worked on: " %><br>
-            <%= link_to @random_project.title.to_s, @random_project %><br>
+            <h4><%= "Project I have worked on: " %><h4>
+            <h4><%= link_to @random_project.title.to_s, @random_project %></h4>
             <%= image_tag @random_project.attach.url(:medium) %><br>
           <% end %>
         </div>
