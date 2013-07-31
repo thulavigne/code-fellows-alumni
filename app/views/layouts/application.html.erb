@@ -8,7 +8,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -30,24 +29,21 @@
               <li><%= link_to "Sign up", new_user_registration_path %></li>
               <li><%= link_to "Sign in", new_user_session_path %></li>
             <% end %>
+            <% flash.each do |key, value| %>
+              <li><div class='flash' id='<%= key %>'>
+                <%= value %>
+              </div></li>
+            <% end %>
           </ul>
         </div>
       </div>
     </div>
   </div>
-<% if user_signed_in? %>
-<p style="float:right; padding-right:80px;">Signed in as <%= current_user.email %> </p>
-<% end %>
 &nbsp;&nbsp;
 <%= link_to "Back", :back %>
-  <div class="container">
-    <% flash.each do |key, value| %>
-      <div class='flash' id='<%= key %>'>
-        <%= value %>
-      </div>
-    <% end %>
 
-    <%= yield %>
-  </div>
+<div class="container">
+  <%= yield %>
+</div>
 </body>
 </html>

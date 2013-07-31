@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_one :address
   has_many :projects
   has_many :links, :as => :owner
-  has_attached_file :avatar, :styles => { :medium => "200x200>", :thumb => "100x100>" }, :default_url => "http://pickaface.net/avatar/ppic.jpg"
+  has_attached_file :avatar, :styles => { :medium => "200x200>", :small => "150x150>", :thumb => "100x100>" }, :default_url => "http://pickaface.net/avatar/ppic.jpg"
 
   def full_name
     return (self.first_name.nil? ? '' : self.first_name) + ' ' +
