@@ -1,0 +1,10 @@
+<div class="container">
+<h2>View All Code Fellows Alumni Profiles</h2>
+
+<ul>
+  <% @users.each do |user| %>
+    <li><%= image_tag user.avatar.url(:small) %></li>
+    <li><%= link_to user.first_name, user %></li>
+  <% end %>
+</ul>
+</div>

@@ -1,6 +1,6 @@
 Alumni::Application.routes.draw do
   devise_for :users
-  root :to => 'passthrough#root'
+  root :to => 'main#index'
   resources :users do
     resources :links
   end

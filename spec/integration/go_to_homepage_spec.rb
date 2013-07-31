@@ -7,7 +7,7 @@ feature 'Go to homepage' do
 
   scenario 'Go to homepage as visitor' do
     visit '/'
-    page.current_path.should == users_path
+    page.current_path.should == root_path
   end
 
   scenario 'Go to homepage as signed in user' do
@@ -16,9 +16,8 @@ feature 'Go to homepage' do
     fill_in 'Email', :with => "codefellow@example.com"
     fill_in 'Password', :with => "password"
     click_button "Sign in"
-    visit '/'
-    user = User.find_by_email('codefellow@example.com')
-    page.current_path.should == user_path(user)
+    click_link "Code Fellows Alumni"
+    page.current_path.should == "/"
   end
 
 end

@@ -13,7 +13,7 @@ feature 'Signing out' do
     fill_in 'Password', :with => "password"
     click_button "Sign in"
     click_link "Sign out"
-    page.current_path.should == users_path
+    page.current_path.should == root_path
   end
 
 end

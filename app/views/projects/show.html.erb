@@ -1,8 +1,10 @@
 <div id="project">
   <h2><%= @project.title %></h2>
   <p>
-    <%= link_to 'Edit', edit_project_path %> |
-    <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% if current_user == @project.user %>
+      <%= link_to 'Edit', edit_project_path %> |
+      <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </p>
     <b>Description:</b>
     <%= @project.description %>
