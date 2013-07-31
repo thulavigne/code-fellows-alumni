@@ -11,9 +11,14 @@
       <% if !@random_user.nil? %>
         <div class="span4">
           <%= image_tag @random_user.avatar.url(:medium) %><br>
-          <%= @random_user.first_name.to_s + " " +
-              @random_user.last_name.to_s %><br>
-          <%= @random_user.introduction %>
+          <%= link_to @random_user.first_name.to_s +
+                " " + @random_user.last_name.to_s, @random_user %><br>
+          <%= @random_user.introduction %><br>
+          <% if !@random_project.nil? %>
+            <h2><%= "Project I have worked on: " +
+                    " " + @random_project.title.to_s %><h2>
+            <%= image_tag @random_project.attach.url(:medium) %><br>
+          <% end %>
         </div>
       <% end %>
       <div class="span5">
