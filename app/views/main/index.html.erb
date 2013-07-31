@@ -42,7 +42,7 @@
            <tbody>
              <% @users.each do |user| %>
                <tr>
-                 <td><%= image_tag user.avatar.url(:small) %>
+                 <td><%= image_tag user.avatar.url(:medium) %>
                  <td><%= link_to user.first_name.to_s +
                         " " + user.last_name.to_s, user %></td>
                </tr>
