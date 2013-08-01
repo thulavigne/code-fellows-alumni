@@ -30,4 +30,22 @@ class User < ActiveRecord::Base
     return self
   end
 
+  def random_project_title
+    proj = self.random_project
+    if proj.nil?
+      return ''
+    else
+      return proj.title
+    end
+  end
+
+  def random_project
+    @projects = self.projects
+    if @projects.empty?
+      return nil
+    else
+      return @projects.at(Random.rand(@projects.size))
+    end
+  end
+
 end
