@@ -1,9 +1,12 @@
 class MainController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.to_a
     if !@users.empty?
       @random_user = @users.at(Random.rand(@users.size))
-      @random_project = @random_user.random_project
+      @users.delete(@random_user)
+      if !@users.empty?
+        @random_user2 = @users.at(Random.rand(@users.size))
+      end
     end
   end
 end

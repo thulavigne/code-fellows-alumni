@@ -19,20 +19,39 @@
     </p>
 </div>
 <div class="home_section">
-      <% if !@random_user.nil? %>
-          <h1><%= "Featured Code Fellow" %></h1>
-          <center>
-            <div class="random_user">
-              <div class="user_img">
-                <%= image_tag @random_user.avatar.url(:medium) %>
-              </div>
-              <div class="user_intro">
-                <h2><%= link_to @random_user.first_name.to_s +
-                " " + @random_user.last_name.to_s, @random_user %></h2>
-                <%= @random_user.introduction %></br>
-                <button><%= link_to "Check Out My Projects", @random_user, { :class => 'button'} %></button>
-              </div>
-            </div>
-          </center>
+  <% if !@random_user.nil? %>
+      <% if @random_user2.nil? %>
+        <h1><%= "Featured Code Fellow" %></h1>
+      <% else %>
+        <h1><%= "Featured Code Fellows" %></h1>
       <% end %>
+      <center>
+        <div class="random_user">
+          <div class="user_img">
+            <%= image_tag @random_user.avatar.url(:medium) %>
+          </div>
+          <div class="user_intro">
+            <h2><%= link_to @random_user.first_name.to_s +
+            " " + @random_user.last_name.to_s, @random_user %></h2>
+            <%= @random_user.introduction %></br>
+            <button><%= link_to "Check Out My Projects", @random_user, { :class => 'button'} %></button>
+          </div>
+        </div>
+      </center>
+  <% end %></br>
+  <% if !@random_user2.nil? %>
+      <center>
+        <div class="random_user">
+          <div class="user_img">
+            <%= image_tag @random_user2.avatar.url(:medium) %>
+          </div>
+          <div class="user_intro">
+            <h2><%= link_to @random_user2.first_name.to_s +
+            " " + @random_user2.last_name.to_s, @random_user2 %></h2>
+            <%= @random_user2.introduction %></br>
+            <button><%= link_to "Check Out My Projects", @random_user2, { :class => 'button'} %></button>
+          </div>
+        </div>
+      </center>
+  <% end %>
 </div>
