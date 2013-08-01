@@ -6,7 +6,7 @@
     </div>
   </center>
 </div>
-<div class="home_section">
+<div class="home_section_color">
   <h1>Are you an employer?</h1>
     <p>
       Use this website to search for technology professionals who have successfully completed the Code Fellows coding bootcamps.</br>
@@ -29,40 +29,10 @@
               <div class="user_intro">
                 <h2><%= link_to @random_user.first_name.to_s +
                 " " + @random_user.last_name.to_s, @random_user %></h2>
-                <%= @random_user.introduction %>
+                <%= @random_user.introduction %></br>
+                <button><%= link_to "Check Out My Projects", @random_user, { :class => 'button'} %></button>
               </div>
             </div>
           </center>
-
-          <% if !@random_project.nil? %>
-            <h2><%= "Project I have worked on" %></h2>
-            <center>
-              <div class="random_user">
-                <div class="user_img">
-                  <%= image_tag @random_project.attach.url %>
-                </div>
-                <div class="user_intro">
-                  <h2><%= link_to @random_project.title.to_s, @random_project %></h2>
-                  <%= @random_project.description %>
-                </div>
-              </div>
-            </center>
-          <% end %>
       <% end %>
-</div>
-
-      <div class="span5">
-        <table class="table">
-           <tbody>
-             <% @users.each do |user| %>
-               <tr>
-                 <td><%= link_to (image_tag user.avatar.url(:thumb)), user %>
-                 <td><%= link_to user.first_name.to_s +
-                        " " + user.last_name.to_s, user %></td>
-               </tr>
-             <% end %>
-           </tbody>
-        </table>
-    </div>
-  </div>
 </div>
