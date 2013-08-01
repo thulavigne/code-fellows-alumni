@@ -20,7 +20,7 @@
               <td><%= user.phone_number %></td>
               <td><%= user.introduction.to_s.truncate(40, :separator => ' ', :omission => "...") %></td>
               <td><%= user.skills.to_s.truncate(40, :separator => ' ', :omission => '...') %></td>
-              <%= a_random_project = user.random_project %>
+              <% a_random_project = user.random_project %>
               <% if !a_random_project.nil? %>
                 <td><%= link_to a_random_project.title, a_random_project %></td>
               <% else %>
