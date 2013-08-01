@@ -1,9 +1,16 @@
 <div class="container">
+  <% if user_signed_in? %>
+    <div class="signed_in">
+      <p style="color:#555; line-height:16px; margin:0px;">Signed in as <%= current_user.email %></p>
+    </div>
+  <% end %>
+  <%= link_to "Back", :back %>
   <% if current_user == @user %>
-    <%= link_to "Edit Profile", edit_user_path(@user) %>
+  | <%= link_to "Edit Profile", edit_user_path(@user) %>
   <% end %>
   <h2><%= @user.full_name %></h2>
-  <%= " " + @user.email%>&nbsp; &nbsp; &nbsp; &nbsp;<%= @user.phone_number %><br><br>
+  <%= " " + @user.email%> |
+  <%= @user.phone_number %><br><br>
 
 </br>
   <div class="row">

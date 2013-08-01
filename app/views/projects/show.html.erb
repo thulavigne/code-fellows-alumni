@@ -1,11 +1,17 @@
+  <% if user_signed_in? %>
+    <div class="signed_in">
+      <p style="color:#555; line-height:16px; margin:0px;">Signed in as <%= current_user.email %></p>
+    </div>
+  <% end %>
 <div id="project">
-  <h2><%= @project.title %></h2>
   <p>
+    <%= link_to "Back", :back %>
     <% if current_user == @project.user %>
-      <%= link_to 'Edit', edit_project_path %> |
+      | <%= link_to 'Edit', edit_project_path %> |
       <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </p>
+  <h2><%= @project.title %></h2>
     <b>Description:</b>
     <%= @project.description %>
   </p>
