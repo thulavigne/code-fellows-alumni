@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container_inner">
   <% if user_signed_in? %>
     <div class="signed_in">
       <p style="color:#555; line-height:16px; margin:0px;">Signed in as <%= current_user.email %></p>
@@ -14,33 +14,34 @@
 
 </br>
   <div class="row">
-    <div class="span3">
+    <div class="span4">
       <%= image_tag @user.avatar.url(:medium) %>
     </div>
-    <div class="span3">
+    <div class="span8" style="float:left;">
       <p>
-        <b>What am I about?</b><br>
+        <h2>What am I about?</h2>
         <%= @user.introduction %>
       </p>
     </div>
-
-    <div class="span2">
+  </div>
+</br>
+  <div class="row">
+    <div class="span4">
       <p>
-        <b>Skills:</b><br>
+        <h2>Skills:</h2>
         <%= @user.skills %>
       </p>
     </div>
-
-    <div class="span2">
+    <div class="span4">
       <p>
-        <b>What is my dream job?</b><br>
+        <h2>What is my dream job?</h2>
         <%= @user.desired_job_situation %>
       </p>
     </div>
 
-    <div class="span2">
+    <div class="span4">
       <p>
-        <b>Where is my dream job?</b><br>
+        <h2>Where is my dream job?</h2>
         <%= @user.desired_job_location %>
       </p>
     </div>
