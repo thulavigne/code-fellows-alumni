@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130809230037) do
+ActiveRecord::Schema.define(:version => 20130810001035) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street_address"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130809230037) do
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
+    t.string   "preferred_language"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

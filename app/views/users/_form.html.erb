@@ -19,7 +19,11 @@
         <b><%= f.label :phone_number %></b>
         <%= f.text_field :phone_number %></br>
       </p>
-        <%= f.submit "Update profile" %>
+      <p>
+        <b><%= f.label :preferred_language %></b>
+        <%= f.select :preferred_language, User.language_options %></br>
+      </p>
+      <%= f.submit "Update profile" %>
     </div>
 
       <div class="span8">
