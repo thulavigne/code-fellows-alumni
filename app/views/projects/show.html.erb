@@ -12,9 +12,13 @@
         <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </p>
-    <h2><%= @project.title %></h2>
-      <b>Description:</b>
-      <%= @project.description %>
+      <h2><%= @project.title %></h2>
+        <b>Description:</b>
+        <%= @project.description %><br>
+        <b>Date deployed:</b>
+        <% if !@project.date_deployed.nil? %>
+          <%= @project.date_deployed.to_s(:date_deployed) %>
+        <% end %>
     </p>
   </div>
   <div>
