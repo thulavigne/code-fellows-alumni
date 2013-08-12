@@ -5,4 +5,8 @@ This app will facilitate the following:
 
 ![Image](https://raw.github.com/thuquach/code-fellows-alumni/master/app/assets/images/home_page_screenshot.png)
 
+And here is an example of some internationalization that has been added to the app.  Each user can select a preferred language and when signed in, that language will be used.  Currently, only a few things have been internationalized but hopefully we will add more in future phases.
+
+![Image](https://raw.github.com/thuquach/code-fellows-alumni/master/app/assets/images/Internationalization_example.png)
+
 MIT License: http://ginger.mit-license.org
