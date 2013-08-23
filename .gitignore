@@ -16,3 +16,6 @@
 
 # Ignore simple cov results
 coverage
+
+# Ignore brakeman results
+breakman.html
