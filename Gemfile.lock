@@ -216,7 +216,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   less-rails
-  paperclip
+  paperclip (~> 3.0)
   pry-debugger
   pry-rails
   rails (= 3.2.13)

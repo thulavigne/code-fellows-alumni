@@ -39,7 +39,7 @@ gem 'jquery-rails'
 
 gem 'devise', '2.1.0'
 
-gem 'paperclip'
+gem "paperclip", "~> 3.0"
 
 gem 'rmagick', '2.13.2'
 
