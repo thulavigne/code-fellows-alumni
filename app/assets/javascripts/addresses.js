@@ -34,12 +34,14 @@ var AddressForm = {
           //handle the case where no state related to country selected
           if (data.content == 'None') {
             $('#address_state').empty();
-            $('#address_state').append( $('<option>No states provided for your country</option>'));
+            $('#address_state').append( $('<option>No states provided for your country</option>'))
+            $('label[for="address_state"]').text("State/Province/Region")
           }
           else {
             state = $('#address_state').val()
             $('#address_state').empty();
-            $('#address_state').append( $('<option>Select your ' + data.region_name + '</option>'));
+            $('#address_state').append( $('<option>Select your ' + data.region_name + '</option>'))
+            $('label[for="address_state"]').text(data.region_name)
             jQuery.each(data.states,function(i, v) {
               $('#address_state').append( $('<option value="'+ data.states[i][0] + '">' + data.states[i][1] + '</option>'))
             })
