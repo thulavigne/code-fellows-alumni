@@ -28,7 +28,8 @@
       <center>
         <div class="random_user">
           <div class="user_img">
-            <%= image_tag @random_user.avatar.url(:medium) %>
+            <%= link_to (image_tag @random_user.avatar.url(:medium)),
+                @random_user %>
           </div>
           <div class="user_intro">
             <h2><%= link_to @random_user.first_name.to_s +
@@ -44,7 +45,8 @@
       <center>
         <div class="random_user">
           <div class="user_img">
-            <%= image_tag @random_user2.avatar.url(:medium) %>
+            <%= link_to (image_tag @random_user2.avatar.url(:medium)),
+                @random_user2 %>
           </div>
           <div class="user_intro">
             <h2><%= link_to @random_user2.first_name.to_s +

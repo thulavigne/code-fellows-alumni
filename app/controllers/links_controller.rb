@@ -44,6 +44,8 @@ private
     a_hash = params.select {|e| /_id/ =~ e}
     an_array = a_hash.first
     a_class = an_array.first.chomp("_id").capitalize.constantize
-    @object = a_class.find(an_array.last)
+    if ( a_class == Project || a_class == User )
+      @object = a_class.find(an_array.last)
+    end
   end
 end

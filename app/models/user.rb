@@ -9,13 +9,33 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation,
     :remember_me, :first_name, :last_name, :phone_number,
     :introduction, :desired_job_situation, :desired_job_location,
-    :skills, :avatar
+    :skills, :avatar, :preferred_language
   # attr_accessible :title, :body
 
   has_one :address
   has_many :projects
   has_many :links, :as => :owner
   has_attached_file :avatar, :styles => { :medium => "200x200>", :small => "150x150>", :thumb => "100x100>" }, :default_url => "http://pickaface.net/avatar/ppic.jpg"
+  delegate :street_address, :city, :state, :postal_code, :country,
+            :to => :address,
+            :allow_nil => true
+
+  def display_address
+    city.to_s +
+      (state.present? ? (", " + address.state_name) : "") +
+      (country.present? ? (", " + address.country_name) : "")
+  end
+
+  def User.language_options
+    return [
+      "English",
+      "Chinese"
+    ]
+  end
+
+  def preferred_language_abbreviation
+    return self.preferred_language.to_s.slice(0,2).downcase.to_sym
+  end
 
   def full_name
     return (self.first_name.nil? ? '' : self.first_name) + ' ' +

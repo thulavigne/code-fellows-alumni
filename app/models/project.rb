@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :description, :title, :attach
+  attr_accessible :description, :title, :attach, :date_deployed
 
   belongs_to :user
   has_many :links, :as => :owner

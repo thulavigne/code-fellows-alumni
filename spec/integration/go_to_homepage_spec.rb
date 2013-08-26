@@ -17,7 +17,7 @@ feature 'Go to homepage' do
     fill_in 'Password', :with => "password"
     click_button "Sign in"
     click_link "Home"
-    page.current_path.should == "/"
+    page.current_path.should == "/en"
   end
 
 end

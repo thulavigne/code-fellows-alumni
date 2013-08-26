@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130730184109) do
+ActiveRecord::Schema.define(:version => 20130824231225) do
 
   create_table "addresses", :force => true do |t|
-    t.string   "street_address"
     t.string   "city"
     t.string   "state"
-    t.string   "zip"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "user_id"
+    t.string   "postal_code"
+    t.string   "country"
+    t.text     "street_address"
   end
 
   add_index "addresses", ["user_id"], :name => "index_addresses_on_user_id"
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130730184109) do
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
+    t.date     "date_deployed"
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
@@ -77,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20130730184109) do
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
+    t.string   "preferred_language"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,9 +1,10 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = current_user.projects
-    if !@projects.empty?
-      @user = @projects.first.user
+    if current_user.nil?
+      redirect_to :root
+    else
+      @projects = current_user.projects
     end
   end
 

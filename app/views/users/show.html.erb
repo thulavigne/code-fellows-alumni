@@ -1,7 +1,7 @@
 <div class="container_inner">
   <% if user_signed_in? %>
     <div class="signed_in">
-      <p style="color:#555; line-height:16px; margin:0px;">Signed in as <%= current_user.email %></p>
+      <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
     </div>
   <% end %>
   <%= link_to "Back", :back %>
@@ -10,7 +10,15 @@
   <% end %>
   <h2><%= @user.full_name %></h2>
   <%= " " + @user.email%> |
-  <%= @user.phone_number %><br><br>
+  <%= @user.phone_number %> |
+  <%= " " + @user.display_address + " " %>
+  <% if current_user == @user %>
+    <% if @user.display_address.present? %>
+      <%= link_to "Change address", edit_address_path(@user.address) %>
+    <% else %>
+      <%= link_to "Add address", new_address_path %>
+    <% end %>
+  <% end %><br><br>
 
 </br>
   <div class="row">

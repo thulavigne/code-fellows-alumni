@@ -3,8 +3,15 @@
 
 en:
   hello: "Hello world"
-en:
   activerecord:
     attributes:
       link:
         url_text: URL address
+  application:
+    signed_in_as: "Signed in as"
+    back: "Back"
+  date:
+    order:
+      - :month
+      - :day
+      - :year
