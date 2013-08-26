@@ -6,15 +6,15 @@ var AddressForm = {
   },
 
   setDefaultCountry: function() {
-    if ($('#address_country').val() == '') {
+    if ( (!$('#address_country').val()) && $("#address-title").text() == "Add Address" ) {
        $('#address_country').val('US')
     }
   },
 
   handleCountryField: function(country) {
     country.change(function() {
-      if (country.val() == '') {
-        $('#address_state').html( $('<option>Select a country first</option>'))
+      if (!country.val()) {
+        $('#address_state').html( $("<option value=''>Select a country first</option>"))
       }
       else {
         AddressForm.populateStates('')
@@ -24,7 +24,7 @@ var AddressForm = {
 
   populateStates: function() {
     if (!($('#address_country').val())) {
-      $('#address_state').html( $('<option>Select a country first</option>'))
+      $('#address_state').html( $("<option value=''>Select a country first</option>"))
     }
     else {
       $.ajax({
@@ -40,15 +40,14 @@ var AddressForm = {
           else {
             state = $('#address_state').val()
             $('#address_state').empty();
-            $('#address_state').append( $('<option value=null>Select your ' + data.region_name + '</option>'))
+            $('#address_state').append( $("<option value=''>Select your " + data.region_name + '</option>'))
             $('label[for="address_state"]').text(data.region_name)
             jQuery.each(data.states,function(i, v) {
               $('#address_state').append( $('<option value="'+ data.states[i][0] + '">' + data.states[i][1] + '</option>'))
             })
-            if (state != '') {
+            if (!state) {
               $('#address_state').val(state)
               if (!($('#address_state').val())) {
-       //         alert("address state first option is " + $("#address_state option:first"))
                 $("#address_state option:first").attr('selected','selected')
               }
             }
