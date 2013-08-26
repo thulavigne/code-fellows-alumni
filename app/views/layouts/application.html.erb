@@ -28,11 +28,7 @@
               <% else %>
               <li><%= link_to "Sign up", new_user_registration_path %></li>
               <li><%= link_to "Sign in", new_user_session_path %></li>
-            <% end %>
-            <% flash.each do |key, value| %>
-              <li><div class='flash' id='<%= key %>'>
-                <%= value %>
-              </div></li>
+              <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
             <% end %>
           </ul>
         </div>
@@ -41,6 +37,11 @@
   </div>
 
   <div class="container">
+    <% flash.each do |key, value| %>
+      <div class='flash' id='<%= key %>'>
+        <%= value %>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 

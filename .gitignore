@@ -19,3 +19,6 @@ coverage
 
 # Ignore brakeman results
 breakman.html
+
+# Ignore dotenv file
+/.env

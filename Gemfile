@@ -47,6 +47,10 @@ gem 'simple_form'
 
 gem 'countries'
 gem 'country_select'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
