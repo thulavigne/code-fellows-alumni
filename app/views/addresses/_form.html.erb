@@ -6,7 +6,7 @@
   <%= f.input :state, :include_blank => true,
     prompt: 'Select a country first',
     collection: states,
-    value_method: :first %>
+    value_method: :last %>
   <%= f.input :country, :include_blank => true,
     collection: countries,
     value_method: :last %>
