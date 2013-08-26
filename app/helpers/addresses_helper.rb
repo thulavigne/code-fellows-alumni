@@ -2,7 +2,7 @@ module AddressesHelper
 
   def states
     if @address.country.present? && @address.state.present?
-      Country.search(@address.country).states.map{|s| [s.first, s.last["name"]]}
+      Country.search(@address.country).states.map{|s| [s.last["name"], s.first] }
     else
       Array.new
     end

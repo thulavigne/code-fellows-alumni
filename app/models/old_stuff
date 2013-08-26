@@ -1,41 +1,53 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// the compiled file.
-//
-// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-// GO AFTER THE REQUIRES BELOW.
-//
-//= require jquery
-//= require jquery_ujs
-//= require twitter/bootstrap
-//= require_tree .
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+// You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+// jQuery ->
+//   $(window).load ->
+//     alert "window loaded"
+//     if $('#address_country').val() == ''
+//       $('#address_country').val('US')
+//     $.ajax "/remote/getStates/" + encodeURIComponent($('#address_country').prop('value'))
+//       type: "GET"
+//       success: (data) ->
+//         if (data.content == 'None')
+//           $('#address_state').empty()
+//           $('#address_state').append( $('<option>No states provided for your country</option>'))
+//         else
+//           state = $('#address_state').val()
+//           $('#address_state').empty()
+//           $('#address_state').append( $('<option>Select your ' + data.region_name + '</option>'))
+//           jQuery.each(data.states, (i, v) ->
+//             $('#address_state').append( $('<option value="'+ data.states[i][0] +'">'+data.states[i][1] +'</option>'))
+//           if state != ''
+//             $('#address_state').val(state)
 $(document).ready(function() {
 
-  $('#address_country').on('ajax:success', function(evt, data, status, xhr) {
-    // get second selectbox by its id
-    var state_select = $('#address_state');
+  $(window).load(function() {
+    if ($('#address_country').val() == '')
+       $('#address_country').val('US');
 
-    // empty it
-    state_select.empty();
+    $.ajax({
+        type: "GET",
+        url: "/remote/getStates/" + encodeURIComponent($('#address_country').prop('value')),
+        success: function(data){
+          if (data.content == 'None')  //handle the case where no state related to country selected
+            {
+              $('#address_state').empty();
+              $('#address_state').append( $('<option>No states provided for your country</option>'));
+            }
+          else
+            {
+              state = $('#address_state').val()
+              $('#address_state').empty();
+              $('#address_state').append( $('<option>Select your ' + data.region_name + '</option>'));
+              jQuery.each(data.states,function(i, v) {
+                $('#address_state').append( $('<option value="'+ data.states[i][0] +'">'+data.states[i][1] +'</option>'));
+              });
+              if (state != '')
+                { $('#address_state').val(state) }
+            }
+        }
+      });
 
-    // we got a JSON array in data, iterate through it
-
-    $.each(data, function(index, value) {
-      // append an option
-      var opt = $('<option/>');
-
-      // value is an array: [:id, :name]
-      opt.attr('value', value[0]);
-      // set text
-      opt.text(value[1]);
-      // append to select
-      opt.appendTo(state_select);
-    });
-  });
-
-});
+  })
+})
