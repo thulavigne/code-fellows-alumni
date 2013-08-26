@@ -10,6 +10,6 @@
   <%= f.input :country, :include_blank => true,
     collection: countries,
     value_method: :last %>
-  f.input :postal_code %>
+  <%= f.input :postal_code %>
   <%= f.submit %>
 <% end %>
