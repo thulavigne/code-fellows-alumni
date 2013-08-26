@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
             :allow_nil => true
 
   def display_address
+#    binding.pry
     city.to_s +
       (state.present? ? (", " + address.state_name) : "") +
       (country.present? ? (", " + address.country_name) : "")

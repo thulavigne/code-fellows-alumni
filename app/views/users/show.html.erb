@@ -9,9 +9,13 @@
   | <%= link_to "Edit Profile", edit_user_path(@user) %>
   <% end %>
   <h2><%= @user.full_name %></h2>
-  <%= " " + @user.email %> |
-  <%= @user.phone_number %> |
-  <%= " " + @user.display_address + " " %>
+  <%= " " + @user.email%>
+  <% if @user.phone_number.present? %>
+     | <%= @user.phone_number %>
+  <% end %>
+  <% if @user.display_address.present? %>
+   | <%= " " + @user.display_address + " " %>
+  <% end %>
   <% if current_user == @user %>
     <% if @user.display_address.present? %>
       <%= link_to "Change address", edit_address_path(@user.address) %>
