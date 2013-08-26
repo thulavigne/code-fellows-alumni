@@ -20,6 +20,10 @@
         <%= f.text_field :phone_number %></br>
       </p>
       <p>
+        <b><%= f.label :twitter_handle %></b>
+        <%= f.text_field :twitter_handle %></br>
+      </p>
+      <p>
         <b><%= f.label :preferred_language %></b>
         <%= f.select :preferred_language, User.language_options %></br>
       </p>

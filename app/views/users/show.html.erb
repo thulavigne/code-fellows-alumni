@@ -13,6 +13,9 @@
   <% if @user.phone_number.present? %>
      | <%= @user.phone_number %>
   <% end %>
+  <% if @user.twitter_handle.present? %>
+     | <%= link_to @user.twitter_handle, "https://twitter.com/" + @user.twitter_handle, target: '_blank' %>
+  <% end %>
   <% if @user.display_address.present? %>
    | <%= " " + @user.display_address + " " %>
   <% end %>

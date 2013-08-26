@@ -9,11 +9,13 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation,
     :remember_me, :first_name, :last_name, :phone_number,
     :introduction, :desired_job_situation, :desired_job_location,
-    :skills, :avatar, :preferred_language, :username
+    :skills, :avatar, :preferred_language, :username, :twitter_handle
   # attr_accessible :title, :body
 
   validates_presence_of :username
   validates_uniqueness_of :username
+  validates_format_of :twitter_handle, :with => /^@[a-zA-Z0-9]+$/,
+    :message => "Must start with @ and have no spaces"
 
   has_one :address
   has_many :projects
