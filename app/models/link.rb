@@ -12,7 +12,6 @@ class Link < ActiveRecord::Base
       "Professional Networking",
       "Social Networking",
       "Code Repository",
-      "Twitter Handle",
       "Other"
     ]
   end

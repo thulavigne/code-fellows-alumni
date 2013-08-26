@@ -16,6 +16,15 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :links, :as => :owner
   has_attached_file :avatar, :styles => { :medium => "200x200>", :small => "150x150>", :thumb => "100x100>" }, :default_url => "http://pickaface.net/avatar/ppic.jpg"
+  delegate :street_address, :city, :state, :postal_code, :country,
+            :to => :address,
+            :allow_nil => true
+
+  def display_address
+    city.to_s +
+      (state.present? ? (", " + address.state_name) : "") +
+      (country.present? ? (", " + address.country_name) : "")
+  end
 
   def User.language_options
     return [
