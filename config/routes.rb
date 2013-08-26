@@ -1,7 +1,6 @@
 Alumni::Application.routes.draw do
 scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
-              controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   root :to => 'main#index'
   resources :users do
     resources :links

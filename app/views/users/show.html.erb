@@ -9,7 +9,7 @@
   | <%= link_to "Edit Profile", edit_user_path(@user) %>
   <% end %>
   <h2><%= @user.full_name %></h2>
-  <%= " " + @user.email%> |
+  <%= " " + @user.email %> |
   <%= @user.phone_number %> |
   <%= " " + @user.display_address + " " %>
   <% if current_user == @user %>

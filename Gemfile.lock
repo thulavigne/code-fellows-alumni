@@ -65,11 +65,11 @@ GEM
       debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
-    devise (2.1.0)
+    devise (3.0.3)
       bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.0.7)
-      railties (~> 3.1)
-      warden (~> 1.1.1)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      warden (~> 1.2.3)
     diff-lcs (1.2.4)
     dotenv (0.8.0)
     dotenv-rails (0.8.0)
@@ -114,7 +114,7 @@ GEM
     omniauth-twitter (1.0.0)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
-    orm_adapter (0.0.7)
+    orm_adapter (0.4.0)
     paperclip (3.5.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -210,7 +210,7 @@ GEM
     uglifier (2.2.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    warden (1.1.1)
+    warden (1.2.3)
       rack (>= 1.0)
     websocket (1.0.7)
     xpath (0.1.4)
@@ -224,7 +224,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   countries
   country_select
-  devise (= 2.1.0)
+  devise
   dotenv-rails
   factory_girl (= 2.6.4)
   jquery-rails
