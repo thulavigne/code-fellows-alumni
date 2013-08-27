@@ -7,7 +7,7 @@ feature 'Valid access when signed in' do
     Factory(:user, :email => "codefellow@example.com")
     visit '/'
     click_link 'Sign in'
-    fill_in 'Email', :with => "codefellow@example.com"
+    fill_in 'Username', :with => "username"
     fill_in 'Password', :with => "password"
     click_button "Sign in"
   end

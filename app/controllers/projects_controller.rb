@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     if @project.save
       flash[:notice] = "Project has been created."
-      redirect_to current_user
+      redirect_to projects_path
     else
       flash[:alert] = "Project has not been created."
       render :action => "new"
