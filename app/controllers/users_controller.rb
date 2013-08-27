@@ -3,7 +3,13 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    @users = User.search params[:search]
+    if params[:search_name].present?
+      @users = (User.search_name params[:search_name]).uniq
+    elsif params[:search_skills].present?
+      @users = (User.search_skills params[:search_skills]).uniq
+    else
+      @users = User.all
+    end
   end
 
   def show

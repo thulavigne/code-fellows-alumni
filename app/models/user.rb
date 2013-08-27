@@ -104,7 +104,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.search(search)
+  def self.search_skills(search)
     if search.present?
       strings = search.downcase.split
       self.all.select do |user|
@@ -113,6 +113,26 @@ class User < ActiveRecord::Base
     else
       self.all
     end
+  end
+
+
+  def self.search_name(search)
+    strings = search.downcase.split
+    search_results = Array.new
+    exact_match_count = 0
+    self.all.each  do |e|
+      if ( e.first_name.downcase == strings.first && e.last_name.downcase == strings.last )
+        search_results.insert(0,e)
+        exact_match_count += 1
+      end
+      if ( (strings.include? e.first_name.downcase) && (strings.include? e.last_name.downcase) )
+        search_results.insert(exact_match_count, e)
+      end
+      if ( (strings.include? e.first_name.downcase) || (strings.include? e.last_name.downcase) )
+        search_results << e
+      end
+    end
+    search_results
   end
 
   def relevant_link

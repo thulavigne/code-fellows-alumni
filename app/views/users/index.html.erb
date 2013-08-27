@@ -5,8 +5,18 @@
     </div>
 <% end %>
   <h2>View All Code Fellows Alumni Profiles</h2>
-  <div id="search">
-    <%= render :partial => 'search' %>
+  <div class="row">
+    <div class="span6" id="search_skills">
+      <%= render :partial => 'search_skills' %>
+    </div>
+    <div class="span6" id="search_name">
+      <%= render :partial => 'search_name' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <%= link_to "View all alumni", users_path %>
+    </div>
   </div>
   <div class="row">
     <div class="span12">
@@ -15,7 +25,6 @@
           <th>Picture</th>
           <th>Name</th>
           <th>Contact</th>
-          <th>Phone Number</th>
           <th>Abbreviated Intro</th>
           <th>Abbreviated Skills</th>
           <th>Project sample</th>
@@ -39,8 +48,8 @@
                   <%= link_to link, link, target: '_blank' %><br>
                 <% end %>
               </td>
-              <td><%= user.introduction.to_s.truncate(80, :separator => ' ', :omission => "...") %></td>
-              <td><%= user.skills.to_s.truncate(80, :separator => ' ', :omission => '...') %></td>
+              <td><%= user.introduction.to_s.truncate(140, :separator => ' ', :omission => "...") %></td>
+              <td><%= user.skills.to_s.truncate(140, :separator => ' ', :omission => '...') %></td>
               <% a_random_project = user.random_project %>
               <% if !a_random_project.nil? %>
                 <td><%= link_to a_random_project.title.to_s, a_random_project %></td>
