@@ -106,8 +106,10 @@ class User < ActiveRecord::Base
 
   def self.search(search)
     if search.present?
-      search_condition = "%" + search + "%"
-      find(:all, :conditions => ['skills LIKE ?', search_condition])
+      strings = search.downcase.split
+      self.all.select do |user|
+        (strings.select {|skill| user.skills.to_s.downcase.include? skill}).count == strings.count
+      end
     else
       self.all
     end
