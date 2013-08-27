@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
             :to => :address,
             :allow_nil => true
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w( email first_name last_name phone_number introduction desired_job_situation desired_job_location skills preferred_language username twitter_handle ) + _ransackers.keys
+  end
+
   def display_address
     city.to_s +
       (state.present? ? (", " + address.state_name) : "") +

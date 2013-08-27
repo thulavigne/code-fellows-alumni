@@ -5,6 +5,9 @@ scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
   resources :users do
     resources :links
   end
+  resources :users do
+    collection { post :search, to: 'users#index' }
+  end
   resources :projects do
     resources :links
   end
