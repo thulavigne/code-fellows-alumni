@@ -103,4 +103,14 @@ class User < ActiveRecord::Base
       super
     end
   end
+
+  def self.search(search)
+    if search.present?
+      search_condition = "%" + search + "%"
+      find(:all, :conditions => ['skills LIKE ?', search_condition])
+    else
+      self.all
+    end
+  end
+
 end

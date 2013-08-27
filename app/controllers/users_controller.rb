@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
-    @users = User.all
+    @users = User.search params[:search]
   end
 
   def show
@@ -26,7 +26,6 @@ class UsersController < ApplicationController
       render :action => "edit"
     end
   end
-
 
 private
   def find_user
