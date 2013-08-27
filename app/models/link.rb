@@ -16,4 +16,8 @@ class Link < ActiveRecord::Base
     ]
   end
 
+  def home_page?
+    self.url_type == "My Home Page"
+  end
+
 end

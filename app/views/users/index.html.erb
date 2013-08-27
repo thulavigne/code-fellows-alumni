@@ -14,7 +14,7 @@
         <thead>
           <th>Picture</th>
           <th>Name</th>
-          <th>Email</th>
+          <th>Contact</th>
           <th>Phone Number</th>
           <th>Abbreviated Intro</th>
           <th>Abbreviated Skills</th>
@@ -25,13 +25,25 @@
             <tr>
               <td><%= link_to (image_tag user.avatar.url(:thumb)), user %></td>
               <td><%= link_to user.full_name.to_s, user %>
-              <td><%= user.email %></td>
-              <td><%= user.phone_number %></td>
-              <td><%= user.introduction.to_s.truncate(40, :separator => ' ', :omission => "...") %></td>
-              <td><%= user.skills.to_s.truncate(40, :separator => ' ', :omission => '...') %></td>
+              <td>
+                <% if user.email.present? %>
+                  <%= user.email.to_s %><br>
+                <% end %>
+                <% if user.phone_number.present? %>
+                  <%= user.phone_number.to_s %><br>
+                <% end %>
+                <% if user.twitter_handle.present? %>
+                  <%= link_to user.twitter_handle, "https://twitter.com/" + user.twitter_handle, target: '_blank' %><br>
+                <% end %>
+                <% if (link = user.relevant_link) %>
+                  <%= link_to link, link, target: '_blank' %><br>
+                <% end %>
+              </td>
+              <td><%= user.introduction.to_s.truncate(80, :separator => ' ', :omission => "...") %></td>
+              <td><%= user.skills.to_s.truncate(80, :separator => ' ', :omission => '...') %></td>
               <% a_random_project = user.random_project %>
               <% if !a_random_project.nil? %>
-                <td><%= link_to a_random_project.title, a_random_project %></td>
+                <td><%= link_to a_random_project.title.to_s, a_random_project %></td>
               <% else %>
                 <td>Coming soon!</td>
               <% end %>

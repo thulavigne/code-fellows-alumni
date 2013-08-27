@@ -115,4 +115,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def relevant_link
+    link = links.detect { |e| e.home_page? } || links.shuffle.first
+    if link
+      link.url_text
+    else
+      nil
+    end
+  end
+
 end
