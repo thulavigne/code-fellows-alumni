@@ -45,7 +45,7 @@ var AddressForm = {
             jQuery.each(data.states,function(i, v) {
               $('#address_state').append( $('<option value="'+ data.states[i][0] + '">' + data.states[i][1] + '</option>'))
             })
-            if (!state) {
+            if (state != '' && state != null) {
               $('#address_state').val(state)
               if (!($('#address_state').val())) {
                 $("#address_state option:first").attr('selected','selected')

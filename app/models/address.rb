@@ -5,7 +5,12 @@ class Address < ActiveRecord::Base
 
   def state_name
     if country.present? && state.present?
-      Country.search(country).states[state]["name"]
+      a_country = Country.search(country)
+      if ( a_country.alpha3 == "CAN" || a_country.alpha3 == "USA" )
+        state
+      else
+        a_country.states[state]["name"]
+      end
     else
       ''
     end
@@ -13,7 +18,12 @@ class Address < ActiveRecord::Base
 
   def country_name
     if country.present?
-      Country.search(country).data["name"]
+      a_country = Country.search(country)
+      if ( a_country.alpha3 == "CAN" || a_country.alpha3 == "USA" )
+        a_country.alpha3
+      else
+        a_country.name
+      end
     else
       ''
     end
