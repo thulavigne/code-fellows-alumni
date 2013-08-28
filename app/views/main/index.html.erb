@@ -1,29 +1,27 @@
 <div class="welcome">
   <center>
     <div class="welcome_block">
-      <h2 class="welcome_h2">Welcome to Codefellows Alumni Website</h2>
-      <p style="font-size:25px; line-height:35px;">Sign up to be featured as one of the many technology professionals who successfully completed the Code Fellows coding bootcamps.</h4>
+      <h2 class="welcome_h2"><%= t ".welcome" %></h2>
+      <p style="font-size:25px; line-height:35px;"><%= t ".welcome_fine_print" %></h4>
     </div>
   </center>
 </div>
 <div class="home_section_color">
-  <h1>Are you an employer?</h1>
+  <h1><%= t ".employer_question" %></h1>
     <p>
-      Use this website to search for technology professionals who have successfully completed the Code Fellows coding bootcamps.</br>
-      We have personally trained and vetted these individuals and stand behind them 100%.
+      <%= t ".employer_answer1" %></br>
+      <%= t ".employer_answer2" %>
     </p>
   </br>
-  <h1>Are you a Code Fellows alumnus/alumna?</h1>
-    <p>
-      Use this website to showcase your skills and talents to potential employers and share projects you have worked on.
-    </p>
+  <h1><%= t ".codefellow_question" %></h1>
+    <p><%= t ".codefellow_answer" %></p>
 </div>
 <div class="home_section">
   <% if !@random_user.nil? %>
       <% if @random_user2.nil? %>
-        <h1><%= "Featured Code Fellow" %></h1>
+        <h1><%= t ".featured_codefellow" %></h1>
       <% else %>
-        <h1><%= "Featured Code Fellows" %></h1>
+        <h1><%= t ".featured_codefellows" %></h1>
       <% end %>
       <center>
         <div class="random_user">
@@ -35,7 +33,7 @@
             <h2><%= link_to @random_user.first_name.to_s +
             " " + @random_user.last_name.to_s, @random_user %></h2>
             <%= @random_user.introduction %></br>
-            <button><%= link_to "Check Out My Projects", @random_user, { :class => 'button'} %></button>
+            <button><%= link_to (t ".check_out_my_projects"), @random_user, { :class => 'button'} %></button>
           </div>
         </div>
       </center>
@@ -52,7 +50,7 @@
             <h2><%= link_to @random_user2.first_name.to_s +
             " " + @random_user2.last_name.to_s, @random_user2 %></h2>
             <%= @random_user2.introduction %></br>
-            <button><%= link_to "Check Out My Projects", @random_user2, { :class => 'button'} %></button>
+            <button><%= link_to (t ".check_out_my_projects"), @random_user2, { :class => 'button'} %></button>
           </div>
         </div>
       </center>
