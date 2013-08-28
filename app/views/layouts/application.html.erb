@@ -18,19 +18,19 @@
         </a>
         <a class="brand" href="/"><img class="logo" src="https://www.codefellows.org/assets/logo-9b9c2ba71305e3452de1acbd515ee606.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <%= link_to_unless_current "English", locale: "en" %> |
-        <%= link_to_unless_current "中國的", locale: "ch" %>
+        <%= link_to_unless_current "中文", locale: "ch" %>
         <div class="nav-collapse" style="float:right;">
           <ul class="nav">
-            <li><%= link_to (t "home"), root_path %></li>
-            <li><%= link_to (t "alumni"), users_path %></li>
+            <li><%= link_to (t "application.home"), root_path %></li>
+            <li><%= link_to (t "application.alumni"), users_path %></li>
             <% if user_signed_in? %>
-              <li><%= link_to (t "my_profile"), current_user %></li>
-              <li><%= link_to (t "my_projects"), projects_path %></li>
-              <li><%= link_to (t "sign_out"), destroy_user_session_path, :method => :delete %></li>
+              <li><%= link_to (t "application.my_profile"), current_user %></li>
+              <li><%= link_to (t "application.my_projects"), projects_path %></li>
+              <li><%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %></li>
               <% else %>
-              <li><%= link_to (t "sign_up"), new_user_registration_path %></li>
-              <li><%= link_to (t "sign_in"), new_user_session_path %></li>
-              <li><%= link_to (t "sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
+              <li><%= link_to (t "application.sign_up"), new_user_registration_path %></li>
+              <li><%= link_to (t "application.sign_in"), new_user_session_path %></li>
+              <li><%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
             <% end %>
           </ul>
         </div>
@@ -51,16 +51,16 @@
 
   <div class="footer">
     <a href="https://www.codefellows.org/" target="0">Code Fellows</a> |
-    <%= link_to "Home", root_path %> |
-    <%= link_to "Alumni", users_path %> |
+    <%= link_to (t "application.home"), root_path %> |
+    <%= link_to (t "application.alumni"), users_path %> |
     <% if user_signed_in? %>
-      <%= link_to "My Profile", current_user %> |
-      <%= link_to "My Projects", projects_path %> |
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> |
+      <%= link_to (t "application.my_profile"), current_user %> |
+      <%= link_to (t "application.my_projects"), projects_path %> |
+      <%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %> |
     <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Sign in", new_user_session_path %> |
-      <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
+      <%= link_to (t "application.sign_up"), new_user_registration_path %> |
+      <%= link_to (t "application.sign_in"), new_user_session_path %> |
+      <%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %>
     <% end %>
   </div>
 </body>

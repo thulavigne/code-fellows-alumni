@@ -21,7 +21,7 @@ en:
       - :year
   main:
     index:
-      welcome: "Welcome to Codefellows Alumni Website"
+      welcome: "Welcome to Code Fellows Alumni Website"
       welcome_fine_print: "Sign up to be featured as one of the many technology professionals who successfully completed the Code Fellows coding bootcamps."
       employer_question: "Are you an employer?"
       employer_answer1: "Use this website to search for technology professionals who have successfully completed the Code Fellows coding bootcamps."
