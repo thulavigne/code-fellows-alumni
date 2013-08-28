@@ -1,9 +1,34 @@
 ch:
   application:
     signed_in_as: "當前用戶"
+    back: "前"
+    home: "主頁"
+    alumni: "校友"
+    my_profile: "我的個人信息"
+    my_projects: "我的項目"
+    sign_out: "退出"
+    sign_up: "報名"
+    sign_in: "登錄"
+    sign_in_with_twitter: "用Twitter登錄"
   date:
     order:
       - :year
       - :month
       - :day
     month_names: [~, 一月, 二月, 三月, 四月, 五月, 六月, 七月, 八月, 九月, 十月, 十一月, 十二月]
+  main:
+    index:
+      welcome: "歡迎到Codefellows校友網站"
+      welcome_fine_print: "許多技術專家之一，他成功地完成了代碼研究員編碼訓練營特色"
+      employer_question: "你是雇主？"
+      employer_answer1: "使用本網站搜索技術專家已成功完成編碼訓練營守則研究員."
+      employer_answer2: "我們親自培訓及核實這些個人和站在他們身後100％"
+      codefellow_question: "你守則院士校友/校友嗎？"
+      codefellow_answer: "使用這個網站展示自己的技能和才華，你已經工作向潛在的雇主和共享項目"
+      featured_codefellow: "特色Codefellow的"
+      featured_codefellows: "特色Codefellow的"
+      check_out_my_projects: "查看我的項目"
+  activerecord:
+    attributes:
+      link:
+        url_text: URL address

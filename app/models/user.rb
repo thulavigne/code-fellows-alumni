@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username
   validates_uniqueness_of :username
-  validates_format_of :twitter_handle, :with => /^@[a-zA-Z0-9]+$/,
+  validates_format_of :twitter_handle, :allow_blank => true, :with => /^@[a-zA-Z0-9]+$/,
     :message => "Must start with @ and have no spaces"
 
   has_one :address
