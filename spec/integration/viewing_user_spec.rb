@@ -6,7 +6,7 @@ feature 'Viewing user profile' do
   before do
     visit '/'
     click_link 'Sign in'
-    fill_in 'Email', :with => "ginger@example.com"
+    fill_in 'Username', :with => "username"
     fill_in 'Password', :with => "password"
     click_button "Sign in"
     Factory(:user, :email => "george@example.com")

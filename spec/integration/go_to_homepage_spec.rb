@@ -13,7 +13,7 @@ feature 'Go to homepage' do
   scenario 'Go to homepage as signed in user' do
     visit '/'
     click_link 'Sign in'
-    fill_in 'Email', :with => "codefellow@example.com"
+    fill_in 'Username', :with => "username"
     fill_in 'Password', :with => "password"
     click_button "Sign in"
     click_link "Home"

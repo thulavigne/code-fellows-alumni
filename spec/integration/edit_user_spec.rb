@@ -7,7 +7,7 @@ feature 'Editing user profile' do
                               :last_name => "Griffis")
     visit '/'
     click_link 'Sign in'
-    fill_in 'Email', :with => "codefellow@example.com"
+    fill_in 'Username', :with => "username"
     fill_in 'Password', :with => "password"
     click_button "Sign in"
     click_link "Edit Profile"
