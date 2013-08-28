@@ -51,7 +51,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'dotenv-rails', :groups => [:development, :test]
 
-#Search
+# Search
 gem "ransack"
 
 # To use ActiveModel has_secure_password

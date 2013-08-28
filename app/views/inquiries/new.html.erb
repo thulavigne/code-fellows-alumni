@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <div class="signed_in">
+    <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
+  </div>
+<% end %>
+<div class="container_inner">
+  <%= link_to "Back", :back %>
+  <h2>Get in touch with <%= @user.full_name %></h2>
+  <p>Please fill out the form below and I'll get back to you as soon as possible.</p>
+
+  <%= render 'form' %>
+</div>

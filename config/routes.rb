@@ -14,7 +14,11 @@ scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
   resources :links
   resources :addresses
   get 'remote%2FgetStates%2F:country', to:'addresses#getStates'
-
+  resources :users do
+    resources :inquiries, :only => [:new, :create] do
+      get 'thank_you', :on => :collection
+    end
+  end
 end
 match '*path', to: redirect("/#{I18n.locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.locale}/" }
 match '', to: redirect("/#{I18n.locale}")

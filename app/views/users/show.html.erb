@@ -25,6 +25,8 @@
     <% else %>
       <%= link_to "Add address", new_address_path %>
     <% end %>
+  <% else %>
+    <%= link_to "Contact me", new_user_inquiry_path(@user) %>
   <% end %><br><br>
 
 </br>
