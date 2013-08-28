@@ -15,7 +15,7 @@
   </div>
   <%= link_to "Advanced search", '#', class: "show_advanced_search" %>
   <div id="advanced_search">
-    <%= search_form_for @search, url: search_users_path, method: :post do |f| %>
+    <%= search_form_for @search do |f| %>
         <%= f.condition_fields do |c| %>
           <%= render "condition_fields", f: c %>
         <% end %>

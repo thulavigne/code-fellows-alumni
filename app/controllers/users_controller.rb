@@ -6,9 +6,9 @@ class UsersController < ApplicationController
     @search = User.search(params[:q])
     @search.build_condition if @search.conditions.empty?
     if params[:search_name].present?
-      @users = (User.search_name params[:search_name]).uniq
+      @users = User.search_name(params[:search_name]).uniq
     elsif params[:search_skills].present?
-      @users = (User.search_skills params[:search_skills]).uniq
+      @users = User.search_skills(params[:search_skills]).uniq
     elsif params[:q].present?
       @users = @search.result(distinct: true)
     else
