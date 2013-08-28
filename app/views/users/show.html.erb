@@ -103,7 +103,7 @@
       <p>
         <h2>Videos</h2>
         <% if current_user == @user %>
-          <%= link_to "Add video", new_video_path %>
+          <%= link_to "Add video", new_video_path, id: "new_video", remote: true %>
         <% end %>
       </p>
       <% @user.videos.each do |video| %>

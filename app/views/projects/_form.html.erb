@@ -1,7 +1,7 @@
 <%= simple_form_for(@project, :html => {:class => 'form-inline'}) do |f| %>
   <%= f.error_notification %>
   <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.input :description, id: "project_description" %>
   <%= f.input :date_deployed, :include_blank => true %>
   <%= f.input :attach %>
   <%= f.submit %>
