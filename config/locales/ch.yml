@@ -18,15 +18,15 @@ ch:
     month_names: [~, 一月, 二月, 三月, 四月, 五月, 六月, 七月, 八月, 九月, 十月, 十一月, 十二月]
   main:
     index:
-      welcome: "歡迎到Codefellows校友網站"
-      welcome_fine_print: "許多技術專家之一，他成功地完成了代碼研究員編碼訓練營特色"
+      welcome: "歡迎到Code Fellows校友網站"
+      welcome_fine_print: "登录这里来展示自己的天赋，成果，专业技能"
       employer_question: "你是雇主？"
-      employer_answer1: "使用本網站搜索技術專家已成功完成編碼訓練營守則研究員."
-      employer_answer2: "我們親自培訓及核實這些個人和站在他們身後100％"
-      codefellow_question: "你守則院士校友/校友嗎？"
-      codefellow_answer: "使用這個網站展示自己的技能和才華，你已經工作向潛在的雇主和共享項目"
-      featured_codefellow: "特色Codefellow的"
-      featured_codefellows: "特色Codefellow的"
+      employer_answer1: "在这个网站您可以找到成功完成Code Fellow 编程培训的学员。"
+      employer_answer2: "我们私人训练他们，强力推荐他们，并且完全支持他们。"
+      codefellow_question: "您Codefellows校友？"
+      codefellow_answer: "用这个网站来展示你的技能和天赋，分享你做的项目给潜在的雇主。"
+      featured_codefellow: "特色Code Fellow的"
+      featured_codefellows: "特色Code Fellow的"
       check_out_my_projects: "查看我的項目"
   activerecord:
     attributes:
