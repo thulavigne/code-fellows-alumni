@@ -1,0 +1,18 @@
+<div class="container_inner">
+  <% if user_signed_in? %>
+    <div class="signed_in">
+      <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
+    </div>
+  <% end %>
+
+  <%= link_to (t "application.back"), :back %>
+  <% if current_user == @video.user %>
+    | <%= link_to 'Edit', edit_video_path %>
+    | <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+  <h2><%= @video.title %></h2>
+  <b><%= @video.description %><b>
+  <p><%= @video.video_link %></p>
+
+</div>

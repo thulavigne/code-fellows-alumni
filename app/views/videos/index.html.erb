@@ -1,0 +1,22 @@
+<div class="container_inner">
+  <% if user_signed_in? %>
+    <div class="signed_in">
+      <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
+    </div>
+  <% end %>
+
+  <%= link_to "Back", :back %>
+  <h2>My Videos</h2>
+
+  <p>
+    <%= link_to "Add video", new_video_path, id: "new_video", remote: true %>
+  </p>
+
+  <% @videos.each do |video| %>
+    <p><%= link_to video.title, video %></p>
+    <p><%= video.description %></p>
+    <p><%= video.video_link %></p>
+    --------
+  <% end %>
+
+</div>

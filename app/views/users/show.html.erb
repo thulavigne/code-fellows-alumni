@@ -14,7 +14,7 @@
      | <%= @user.phone_number %>
   <% end %>
   <% if @user.twitter_handle.present? %>
-     | <%= link_to @user.twitter_handle, "https://twitter.com/" + @user.twitter_handle, target: '_blank' %>
+     | @<%= link_to @user.twitter_handle, "https://twitter.com/" + @user.twitter_handle, target: '_blank' %>
   <% end %>
   <% if @user.display_address.present? %>
    | <%= " " + @user.display_address + " " %>
@@ -23,7 +23,7 @@
     <% if @user.display_address.present? %>
       <%= link_to "Change address", edit_address_path(@user.address) %>
     <% else %>
-      <%= link_to "Add address", new_address_path %>
+      </br><%= link_to "Add address", new_address_path %>
     <% end %>
   <% else %>
     <%= link_to "Contact me", new_user_inquiry_path(@user) %>
@@ -74,7 +74,7 @@
       </p>
       <%= render "links/links_form" %>
     </div>
-    <div class="span4"
+    <div class="span4">
       <p>
         <h2>Projects</h2>
         <% if current_user == @user %>
@@ -98,5 +98,26 @@
          </tbody>
       </table>
     </div>
+
+    <div class="span8">
+      <p>
+        <h2>Videos</h2>
+        <% if current_user == @user %>
+          <%= link_to "Add video", new_video_path %>
+        <% end %>
+      </p>
+      <% @user.videos.each do |video| %>
+        <p><%= link_to video.title, video %></p>
+        <p><%= video.description %></p>
+        <p><%= video.video_link %></p>
+        <% if current_user == @user %>
+          <%= link_to 'Edit', edit_video_path %> |
+          <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %></br>
+        --------
+      <% end %>
+      </br><%= link_to "View All", videos_path %>
+    </div>
+
   </div>
 </div>
