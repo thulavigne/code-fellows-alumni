@@ -37,11 +37,13 @@
   </div>
 
   <div class="container">
-    <% flash.each do |key, value| %>
-      <div class='flash' id='<%= key %>'>
-        <%= value %>
-      </div>
-    <% end %>
+    <div class="container_inner">
+      <% flash.each do |key, value| %>
+        <div class='flash' id='<%= key %>'>
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
   </div>
 
@@ -55,7 +57,8 @@
       <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> |
     <% else %>
       <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Sign in", new_user_session_path %>
+      <%= link_to "Sign in", new_user_session_path %> |
+      <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
     <% end %>
   </div>
 </body>

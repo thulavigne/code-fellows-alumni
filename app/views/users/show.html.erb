@@ -69,7 +69,7 @@
       <p>
         <h2>Contact/networking/reference/useful links:</h2>
         <% if current_user == @user %>
-          <%= link_to "Add link", new_user_link_path(@user) %>
+          <%= link_to "Add link", new_user_link_path(@user), id: "new_user_link", remote: true %>
         <% end %>
       </p>
       <%= render "links/links_form" %>
