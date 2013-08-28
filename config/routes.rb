@@ -8,9 +8,13 @@ scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
   resources :users do
     collection { post :search, to: 'users#index' }
   end
+  resources :users do
+    resources :videos
+  end
   resources :projects do
     resources :links
   end
+  resources :videos
   resources :links
   resources :addresses
   get 'remote%2FgetStates%2F:country', to:'addresses#getStates'

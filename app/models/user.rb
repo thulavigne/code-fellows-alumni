@@ -14,11 +14,12 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username
   validates_uniqueness_of :username
-  validates_format_of :twitter_handle, :allow_blank => true, :with => /^@[a-zA-Z0-9]+$/,
-    :message => "Must start with @ and have no spaces"
+  # validates_format_of :twitter_handle, :with => /^@[a-zA-Z0-9]+$/,
+    # :message => "Must start with @ and have no spaces"
 
   has_one :address
   has_many :projects
+  has_many :videos
   has_many :links, :as => :owner
   has_attached_file :avatar, :styles => { :medium => "200x200>", :small => "150x150>", :thumb => "100x100>" }, :default_url => "http://pickaface.net/avatar/ppic.jpg"
   delegate :street_address, :city, :state, :postal_code, :country,
