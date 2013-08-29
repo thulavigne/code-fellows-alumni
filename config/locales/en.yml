@@ -28,6 +28,9 @@ en:
     image: "Image"
     description: "Description"
     screenshot: "Screenshot"
+    introduction: "Introduction"
+    edit_profile: "Edit Profile"
+    create_profile: "Create Profile"
   date:
     order:
       - :month
@@ -56,13 +59,11 @@ en:
       picture: "Picture"
       name: "Name"
       contact: "Contact"
-      introduction: "Introduction"
       project_sample: "Project sample"
       coming_soon: "Coming soon!"
       remove: "remove"
       add_conditions: "Add conditions"
     show:
-      edit_profile: "Edit Profile"
       what_am_I_about: "What am I about?"
       what_is_my_dream_job: "What is my dream job?"
       where_is_my_dream_job: "Where is my dream job?"
@@ -73,6 +74,22 @@ en:
       change_address: "Change address"
       add_address: "Add address"
       contact_me: "Contact me"
+    form:
+      profile_picture: "Profile picture"
+      choose_file: "Choose File"
+      no_file_chosen: "No file chosen"
+      first_name: "First name"
+      last_name: "Last name"
+      phone_number: "Phone number"
+      twitter_handle: "Twitter handle"
+      preferred_language: "Preferred language"
+      update_profile: "Update profile"
+      desired_job_location: "Desired job location"
+      desired_job_situation: "Desired job situation"
+      introduction_prompt: "What am I about? What is the main thing I want employers to know about me?  What are my strengths?"
+      skills_prompt: "List all skills relevant to the job you are seeking--this is where all the acronyms go."
+      desired_job_location_prompt: "Where is my dream job? List the locations where you would like or would be willing to work, including your current location if applicable. Be as general or specific as you like"
+      desired_job_situation_prompt: "What is my dream job? Describe the type of job you are seeking/what type of work you would like to do"
   projects:
     show:
       date_deployed: "Date deployed"

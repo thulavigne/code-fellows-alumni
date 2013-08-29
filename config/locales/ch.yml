@@ -24,6 +24,9 @@ ch:
     image: "圖片"
     description: "描述"
     screenshot: "圖片"
+    introduction: "介紹"
+    edit_profile: "變更"
+    create_profile: "建立檔案"
   date:
     order:
       - :year
@@ -53,14 +56,12 @@ ch:
       picture: "圖片"
       name: "名"
       contact: "查號台"
-      introduction: "介紹"
       skills: "技能"
       project_sample: "工程"
       coming_soon: "將來"
       remove: "消除"
       add_conditions: "加入條件"
     show:
-      edit_profile: "變更"
       what_am_I_about: "自我總結"
       what_is_my_dream_job: "描述你想要的工作"
       where_is_my_dream_job: "哪個城市，你想工作嗎？"
@@ -71,6 +72,22 @@ ch:
       change_address: "修改地址"
       add_address: "添加地址"
       contact_me: "與我聯繫"
+    form:
+      profile_picture: "圖片"
+      choose_file: "文檔"
+      no_file_chosen: "沒有 文檔"
+      first_name: "姓"
+      last_name: "姓"
+      phone_number: "電話號碼"
+      twitter_handle: "Twitter"
+      preferred_language: "語"
+      update_profile: "變更"
+      desired_job_location: "所需的作業地點"
+      desired_job_situation: "描述你想要的工作"
+      introduction_prompt: "自我總結，我的強項，我的技能"
+      skills_prompt: "具體的工作技能"
+      desired_job_location_prompt: "你喜歡住在什麼樣的城市？"
+      desired_job_situation_prompt: "所需的工作總結。你想要什麼樣的工作？"
   projects:
     show:
       date_deployed: "部署日期"
