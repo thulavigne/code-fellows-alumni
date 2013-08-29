@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
   attr_accessible :description, :title, :video_link
   belongs_to :user
-  validates_presence_of :title
+  validates_presence_of :title, :video_link
 end

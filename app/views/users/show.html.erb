@@ -99,25 +99,26 @@
       </table>
     </div>
 
-    <div class="span8">
+    <div class="span12">
       <p>
         <h2>Videos</h2>
         <% if current_user == @user %>
           <%= link_to "Add video", new_video_path, id: "new_video", remote: true %>
         <% end %>
       </p>
-      <% @user.videos.each do |video| %>
-        <p><%= link_to video.title, video %></p>
-        <p><%= video.description %></p>
-        <p><%= video.video_link %></p>
-        <% if current_user == @user %>
-          <%= link_to 'Edit', edit_video_path %> |
-          <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %></br>
-        --------
-      <% end %>
-      </br><%= link_to "View All", videos_path %>
+      <div id="video_url">
+        <% @user.videos.take(2).each do |video| %>
+          <p><%= link_to video.title, video %></p>
+          <p><%= video.description %></p>
+          <p><a href="<%= video.video_link %>"></a></p>
+          <% if current_user == @user %>
+            <%= link_to 'Edit', edit_video_path %> |
+            <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        <% end %>
+        </br>
+        <%= link_to "View All", videos_path %>
+      </div>
     </div>
-
   </div>
 </div>

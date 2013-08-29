@@ -1,7 +1,7 @@
-<%= simple_form_for(@video, :html => {:class => 'form-inline'}) do |f| %>
+<%= simple_form_for(@video, id: "new_video_form", :html => {:class => 'form-inline'}) do |f| %>
   <%= f.error_notification %>
   <%= f.input :title %>
-  <%= f.input :description, id: "video_description" %>
+  <%= f.input :description %>
   <%= f.input :video_link %>
   <%= f.submit %>
 <% end %>
