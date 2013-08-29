@@ -11,12 +11,12 @@
   <p>
     <%= link_to "Add video", new_video_path, id: "new_video", remote: true %>
   </p>
-
-  <% @videos.each do |video| %>
-    <p><%= link_to video.title, video %></p>
-    <p><%= video.description %></p>
-    <p><%= video.video_link %></p>
-    --------
-  <% end %>
-
+  <div id="video_url">
+    <% @videos.each do |video| %>
+      <p><%= link_to video.title, video %></p>
+      <p><%= video.description %></p>
+      <p><a href="<%= video.video_link %>"></a></p>
+      </br>
+    <% end %>
+  </div>
 </div>

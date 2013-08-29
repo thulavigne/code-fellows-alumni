@@ -6,6 +6,17 @@
   <%= javascript_include_tag "application" %>
   <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
   <%= csrf_meta_tags %>
+  <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script src="http://cdn.embed.ly/jquery.embedly-3.1.1.min.js"></script>
+  <script type="text/javascript">
+    $('document').ready(function(){
+      $('#video_url').embedly({
+        query: { maxwidth: 450, wmode: 'transparent' },
+        method: 'after',
+        key: '454314ac5d2c4cfa990b5444d71874ef'
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="navbar navbar-fixed-top">
