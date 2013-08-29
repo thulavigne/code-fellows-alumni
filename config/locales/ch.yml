@@ -28,6 +28,23 @@ ch:
       featured_codefellow: "特色Code Fellow的"
       featured_codefellows: "特色Code Fellow的"
       check_out_my_projects: "查看我的項目"
+  users:
+    index:
+      view_profiles: "查看Code Fellow型材"
+      search_skills: "搜索技巧"
+      search_name: "按名稱搜索"
+      search: "搜索"
+      advanced_search: "高級搜索"
+      view_all_alumni: "查看所有校友"
+      picture: "圖片"
+      name: "名"
+      contact: "查號台"
+      introduction: "介紹"
+      skills: "技能"
+      project_sample: "工程"
+      coming_soon: "將來"
+      remove: "消除"
+      add_conditions: "加入條件"
   activerecord:
     attributes:
       link:

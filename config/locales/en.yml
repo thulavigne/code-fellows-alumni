@@ -31,4 +31,20 @@ en:
       featured_codefellow: "Featured Code Fellow"
       featured_codefellows: "Featured Code Fellows"
       check_out_my_projects: "Check Out My Projects"
-
+  users:
+    index:
+      view_profiles: "View All Code Fellows Alumni Profiles"
+      search_skills: "Search Skills"
+      search_name: "Search Name"
+      search: "Search"
+      advanced_search: "Advanced search"
+      view_all_alumni: "View all alumni"
+      picture: "Picture"
+      name: "Name"
+      contact: "Contact"
+      introduction: "Introduction"
+      skills: "Skills"
+      project_sample: "Project sample"
+      coming_soon: "Coming soon!"
+      remove: "remove"
+      add_conditions: "Add conditions"
