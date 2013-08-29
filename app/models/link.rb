@@ -5,17 +5,6 @@ class Link < ActiveRecord::Base
     :message => "must be the full URL including http::// or https:// so that it will be clickable."
   validates_presence_of :url_text
 
-  def self.url_types
-    return [
-      "My Home Page",
-      "Blog",
-      "Professional Networking",
-      "Social Networking",
-      "Code Repository",
-      "Other"
-    ]
-  end
-
   def home_page?
     self.url_type == "My Home Page"
   end

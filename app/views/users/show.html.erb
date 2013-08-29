@@ -6,7 +6,7 @@
   <% end %>
   <%= link_to (t "application.back"), :back %>
   <% if current_user == @user %>
-  | <%= link_to (t ".edit_profile"), edit_user_path(@user) %>
+  | <%= link_to (t "application.edit_profile"), edit_user_path(@user) %>
   <% end %>
   <h2><%= @user.full_name %></h2>
   <%= " " + @user.email%>

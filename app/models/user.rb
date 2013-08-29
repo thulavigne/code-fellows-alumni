@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   def User.language_options
     return [
       "English",
-      "Chinese"
+      "中文"
     ]
   end
 

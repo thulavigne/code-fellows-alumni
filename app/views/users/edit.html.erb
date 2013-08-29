@@ -4,7 +4,7 @@
       <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
     </div>
 <% end %>
-<%= link_to "Back", :back %>
-<h2>Edit My Profile</h2>
+<%= link_to (t "application.back"), :back %>
+<h2><%= t "application.edit_profile" %></h2>
 <%= render "form" %>
 </div>

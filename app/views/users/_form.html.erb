@@ -3,48 +3,48 @@
   <div class="container">
     <div class="column">
       <p>
-        <b>Profile Picture</b><br/>
+        <b><%= t ".profile_picture" %></b><br/>
           <%= f.file_field :avatar %></br>
           <%= image_tag @user.avatar.url(:medium) %>
       </p>
       <p>
-        <b><%= f.label :first_name %></b>
+        <b><%= f.label :first_name, (t ".first_name") %></b>
         <%= f.text_field :first_name %>
       </p>
       <p>
-        <b><%= f.label :last_name %></b>
+        <b><%= f.label :last_name, (t ".last_name") %></b>
         <%= f.text_field :last_name %>
       </p>
       <p>
-        <b><%= f.label :phone_number %></b>
+        <b><%= f.label :phone_number, (t ".phone_number") %></b>
         <%= f.text_field :phone_number %></br>
       </p>
       <p>
-        <b><%= f.label :twitter_handle %></b>
+        <b><%= f.label :twitter_handle, (t ".twitter_handle") %></b>
         <%= f.text_field :twitter_handle %></br>
       </p>
       <p>
-        <b><%= f.label :preferred_language %></b>
+        <b><%= f.label :preferred_language, (t ".preferred_language") %></b>
         <%= f.select :preferred_language, User.language_options %></br>
       </p>
-      <%= f.submit "Update profile" %>
+      <%= f.submit (t ".update_profile") %>
     </div>
 
       <div class="span8">
-        <b><%= f.label :introduction %></b>
-        <%= f.text_area :introduction, :placeholder => "What am I about? What is the main thing I want employers to know about me?  What are my strengths?" %>
+        <b><%= f.label :introduction, (t "application.introduction") %></b>
+        <%= f.text_area :introduction, :placeholder => (t ".introduction_prompt") %>
       </div>
       <div class="span8">
-        <b><%= f.label :skills %></b>
-        <%= f.text_area :skills, :placeholder => "List all skills relevant to the job you are seeking--this is where all the acronyms go." %>
+        <b><%= f.label :skills, (t "application.skills") %></b>
+        <%= f.text_area :skills, :placeholder => (t ".skills_prompt") %>
       </div>
       <div class="span8">
-        <b><%= f.label :desired_job_situation %></b>
-        <%= f.text_area :desired_job_situation, :placeholder => "What is my dream job? Describe the type of job you are seeking/what type of work you would like to do" %>
+        <b><%= f.label :desired_job_situation, (t ".desired_job_situation") %></b>
+        <%= f.text_area :desired_job_situation, :placeholder => (t ".desired_job_situation_prompt") %>
       </div>
       <div class="span8">
-        <b><%= f.label :desired_job_location %></b>
-        <%= f.text_area :desired_job_location, :placeholder => "Where is my dream job? List the locations where you would like or would be willing to work, including your current location if applicable. Be as general or specific as you like" %>
+        <b><%= f.label :desired_job_location, (t ".desired_job_location") %></b>
+        <%= f.text_area :desired_job_location, :placeholder => (t ".desired_job_location_prompt") %>
       </div>
   </div>
 <% end %>
