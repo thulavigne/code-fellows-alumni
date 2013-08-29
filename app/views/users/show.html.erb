@@ -4,7 +4,7 @@
       <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
     </div>
   <% end %>
-  <%= link_to "Back", :back %>
+  <%= link_to (t "application.back"), :back %>
   <% if current_user == @user %>
   | <%= link_to "Edit Profile", edit_user_path(@user) %>
   <% end %>

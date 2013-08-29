@@ -18,11 +18,11 @@ class ApplicationController < ActionController::Base
 private
 
   def set_locale
-    if current_user && current_user.preferred_language_abbreviation.present?
-      I18n.locale = current_user.preferred_language_abbreviation
-    else
-      if params[:locale].present?
+    if params[:locale].present?
         I18n.locale = params[:locale]
+    else
+      if current_user && current_user.preferred_language_abbreviation.present?
+        I18n.locale = current_user.preferred_language_abbreviation
       else
         I18n.locale = I18n.default_locale
       end
