@@ -5,17 +5,17 @@
     </div>
   <% end %>
 
-  <%= link_to "Back", :back %>
+  <%= link_to (t "application.back"), :back %>
   <h2>My Projects</h2>
 
   <p>
-    <%= link_to "Add project", new_project_path, id: "new_link", remote: true %>
+    <%= link_to (t "application.add_project"), new_project_path, id: "new_link", remote: true %>
   </p>
   <table class="table table-striped table-bordered">
     <thead>
-      <th>Image</th>
-      <th>Title</th>
-      <th>Description</th>
+      <th><%= t "application.image" %></th>
+      <th><%= t "application.title" %></th>
+      <th><%= t "application.description" %></th>
     </thead>
     <tbody>
       <% @projects.each do |p| %>
@@ -25,8 +25,8 @@
           <td class="project_title_column"><%= link_to p.title, project_path(p) %></td>
           <td><%= link_to p.description, project_path(p) %></td>
           <% if current_user == @user %>
-            <td><%= link_to 'Edit', edit_project_path(p) %></td>
-            <td><%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to (t "application.edit"), edit_project_path(p) %></td>
+            <td><%= link_to (t "application.delete"), p, method: :delete, data: { confirm: (t "application.confirm") } %></td>
           <% end %>
         </tr>
       </div>

@@ -20,6 +20,9 @@ ch:
     link_type: "類型"
     link_description: "描述"
     confirm: "肯定"
+    add_project: "新增項目"
+    image: "圖片"
+    description: "描述"
   date:
     order:
       - :year
@@ -64,7 +67,6 @@ ch:
       online_presence: "網站"
       videos: "視頻"
       add_video: "添加視頻"
-      add_project: "新增項目"
       change_address: "修改地址"
       add_address: "添加地址"
       contact_me: "與我聯繫"

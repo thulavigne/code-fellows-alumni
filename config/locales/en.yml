@@ -24,6 +24,9 @@ en:
     link_type: " Type"
     link_description: "Description"
     confirm: "Are you sure?"
+    add_project: "Add project"
+    image: "Image"
+    description: "Description"
   date:
     order:
       - :month
@@ -66,7 +69,6 @@ en:
       online_presence: "Online presence"
       videos: "Videos"
       add_video: "Add video"
-      add_project: "Add project"
       change_address: "Change address"
       add_address: "Add address"
       contact_me: "Contact me"
