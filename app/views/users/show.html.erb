@@ -108,13 +108,14 @@
       </p>
       <div id="video_url">
         <% @user.videos.take(2).each do |video| %>
-          <p><%= link_to video.title, video %></p>
+          <p><h2><%= link_to video.title, video %></h2></p>
           <p><%= video.description %></p>
           <p><a href="<%= video.video_link %>"></a></p>
           <% if current_user == @user %>
             <%= link_to (t "application.edit"), edit_video_path %> |
             <%= link_to (t "application.delete"), p, method: :delete, data: { confirm: (t "application.confirm") } %>
           <% end %>
+          </br></br>
         <% end %>
         </br>
         <%= link_to (t "application.view_all"), videos_path %>
