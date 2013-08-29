@@ -10,6 +10,16 @@ ch:
     sign_up: "報名"
     sign_in: "登錄"
     sign_in_with_twitter: "用Twitter登錄"
+    skills: "技能"
+    edit: "變更"
+    delete: "刪除"
+    view_all: "凡是"
+    add_link: "加 Url"
+    title: "稱謂"
+    url: "Url"
+    link_type: "類型"
+    link_description: "描述"
+    confirm: "肯定"
   date:
     order:
       - :year
@@ -45,6 +55,19 @@ ch:
       coming_soon: "將來"
       remove: "消除"
       add_conditions: "加入條件"
+    show:
+      edit_profile: "變更"
+      what_am_I_about: "自我總結"
+      what_is_my_dream_job: "描述你想要的工作"
+      where_is_my_dream_job: "哪個城市，你想工作嗎？"
+      projects: "工程"
+      online_presence: "網站"
+      videos: "視頻"
+      add_video: "添加視頻"
+      add_project: "新增項目"
+      change_address: "修改地址"
+      add_address: "添加地址"
+      contact_me: "與我聯繫"
   activerecord:
     attributes:
       link:

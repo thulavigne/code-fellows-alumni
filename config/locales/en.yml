@@ -14,6 +14,16 @@ en:
     sign_up: "Sign up"
     sign_in: "Sign in"
     sign_in_with_twitter: "Sign in with Twitter"
+    skills: "Skills"
+    edit: "Edit"
+    delete: "Delete"
+    view_all: "View all"
+    add_link: "Add url"
+    title: "Title"
+    url: "Url"
+    link_type: " Type"
+    link_description: "Description"
+    confirm: "Are you sure?"
   date:
     order:
       - :month
@@ -43,8 +53,22 @@ en:
       name: "Name"
       contact: "Contact"
       introduction: "Introduction"
-      skills: "Skills"
       project_sample: "Project sample"
       coming_soon: "Coming soon!"
       remove: "remove"
       add_conditions: "Add conditions"
+    show:
+      edit_profile: "Edit Profile"
+      what_am_I_about: "What am I about?"
+      what_is_my_dream_job: "What is my dream job?"
+      where_is_my_dream_job: "Where is my dream job?"
+      projects: "Projects"
+      online_presence: "Online presence"
+      videos: "Videos"
+      add_video: "Add video"
+      add_project: "Add project"
+      change_address: "Change address"
+      add_address: "Add address"
+      contact_me: "Contact me"
+
+
