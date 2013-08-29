@@ -8,14 +8,14 @@
     <p>
       <%= link_to (t "application.back"), :back %>
       <% if current_user == @project.user %>
-        | <%= link_to 'Edit', edit_project_path %> |
-        <%= link_to 'Delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+        | <%= link_to (t "application.edit"), edit_project_path %> |
+        <%= link_to (t "application.delete"), p, method: :delete, data: { confirm: (t "application.confirm") } %>
       <% end %>
     </p>
       <h2><%= @project.title %></h2>
-        <b>Description:</b>
+        <b><%= t "application.description" %></b>
         <%= @project.description %><br>
-        <b>Date deployed:</b>
+        <b><%= t ".date_deployed" %></b>
         <% if !@project.date_deployed.nil? %>
           <%= @project.date_deployed.to_s(:date_deployed) %>
         <% end %>
@@ -23,7 +23,7 @@
   </div>
   <div>
     <% if @project.attach.exists? then %>
-      <b>Screenshot</b></br>
+      <b><%= t "application.screenshot" %></b></br>
       <%= image_tag @project.attach.url %>
     <% end %>
   </div>
@@ -31,9 +31,9 @@
    <div class="row">
     <div class="span6">
       <p>
-        <b>Project links: </b>
+        <b><%= t ".project_links" %> </b>
         <% if current_user == @project.user %>&nbsp;&nbsp;
-          <%= link_to "Add link", new_project_link_path(@object) %>
+          <%= link_to (t "application.add_link"), new_project_link_path(@object) %>
         <% end %>
       </p>
       <%= render "links/links_form" %>

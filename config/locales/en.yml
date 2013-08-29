@@ -27,6 +27,7 @@ en:
     add_project: "Add project"
     image: "Image"
     description: "Description"
+    screenshot: "Screenshot"
   date:
     order:
       - :month
@@ -72,5 +73,18 @@ en:
       change_address: "Change address"
       add_address: "Add address"
       contact_me: "Contact me"
+  projects:
+    show:
+      date_deployed: "Date deployed"
+      project_links: "Project links"
+    index:
+      my_projects: "My projects"
+  links:
+    home_page: "My Home Page"
+    blog: "Blog"
+    professional_networking: "Professional Networking"
+    social_networking: "Social Networking"
+    code_repository: "Code Repository"
+    other: "Other"
 
 

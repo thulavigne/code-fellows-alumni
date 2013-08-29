@@ -6,7 +6,7 @@
   <% end %>
 
   <%= link_to (t "application.back"), :back %>
-  <h2>My Projects</h2>
+  <h2><%= t ".my_projects" %></h2>
 
   <p>
     <%= link_to (t "application.add_project"), new_project_path, id: "new_link", remote: true %>

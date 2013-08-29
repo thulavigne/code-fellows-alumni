@@ -23,6 +23,7 @@ ch:
     add_project: "新增項目"
     image: "圖片"
     description: "描述"
+    screenshot: "圖片"
   date:
     order:
       - :year
@@ -70,6 +71,19 @@ ch:
       change_address: "修改地址"
       add_address: "添加地址"
       contact_me: "與我聯繫"
+  projects:
+    show:
+      date_deployed: "部署日期"
+      project_links: "工程 urls"
+    index:
+      my_projects: "工程"
+  links:
+    home_page: "主頁"
+    blog: "博客"
+    professional_networking: "專業網絡"
+    social_networking: "社交網絡"
+    code_repository: "記算計代碼"
+    other: "其他"
   activerecord:
     attributes:
       link:
