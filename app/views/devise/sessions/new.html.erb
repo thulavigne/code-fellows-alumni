@@ -64,7 +64,7 @@
               <div class="line line-dashed"></div>
               <p class="text-muted text-center"><small>Don't have an account?</small></p>
               <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-                <a href="<%= new_registration_path(resource_name) %>" class="btn btn-white btn-block">Sign Up</a>
+                <a href="<%= new_registration_path(resource_name) %>" class="btn btn-warning btn-block">Sign Up</a>
               <% end -%>
             <% end %>
           </div>
