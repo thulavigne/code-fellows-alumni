@@ -46,9 +46,9 @@
         </div>
         <div class="col-md-6">
           <section class="panel">
-            <div class="panel-body">
-              <%= link_to (t ".advanced_search"), '#', class: "show_advanced_search" %>
-              <div id="advanced_search">
+            <div class="panel-body" style="padding-top:18px;padding-bottom:18px;">
+              <%= link_to (t ".advanced_search"), '#', class: "show_advanced_search btn-sm btn-success" %>
+              <div id="advanced_search" style="padding-top:20px;">
                 <%= search_form_for @search do |f| %>
                   <%= f.condition_fields do |c| %>
                     <%= render "condition_fields", f: c %>
@@ -73,19 +73,18 @@
             <section class="panel">
               <div class="panel-body">
                 <div class="clearfix m-b">
-
-                    <%= link_to (image_tag user.avatar.url(:thumb), class: "img-circle"), user, class: "thumb-sm pull-left m-r" %>
-                    <div class="clear">
-                      <strong><%= link_to user.full_name.to_s, user %></strong>
-                      <small class="block text-muted">
-                        <% if user.display_address.present? %>
-                          <%= " " + user.display_address + " " %>
-                        <% end %>&nbsp;&nbsp;
-                        <% if user.twitter_handle.present? %>
-                          <i class="icon-twitter"></i><%= link_to user.twitter_handle, "https://twitter.com/" + user.twitter_handle, target: '_blank' %>
-                        <% end %>
-                      </small>
-                    </div>
+                  <%= link_to (image_tag user.avatar.url(:thumb), class: "img-circle"), user, class: "thumb-sm pull-left m-r" %>
+                  <div class="clear">
+                    <strong><%= link_to user.full_name.to_s, user %></strong>
+                    <small class="block text-muted">
+                      <% if user.display_address.present? %>
+                        <%= " " + user.display_address + " " %>
+                      <% end %>&nbsp;&nbsp;
+                      <% if user.twitter_handle.present? %>
+                        <i class="icon-twitter"></i><%= link_to user.twitter_handle, "https://twitter.com/" + user.twitter_handle, target: '_blank' %>
+                      <% end %>
+                    </small>
+                  </div>
                 </div>
                 <b>About Me</b>
                 <p>
