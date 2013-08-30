@@ -1,22 +1,21 @@
 <%= form_for [@user, @inquiry], :html => {:class => 'form-inline'} do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <p>
-    <div>
-      <%= f.label :name, "Your name" %><br/>
-      <%= f.text_field :name %>
-    </div>
+  <div class="form-group">
+    <%= f.label :name, "Your name", class: "control-label" %><br/>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
 
-    <div>
-      <%= f.label :email, "Your email address" %><br/>
-      <%= f.text_field :email %>
-    </div>
+  <div class="form-group">
+    <%= f.label :email, "Your email address", class: "control-label" %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
 
-    <div>
-      <%= f.label :message %><br/>
-      <%= f.text_area :message %>
-    </div>
-  </p>
-  <div>
-    <%= f.submit "Send" %>
+  <div class="form-group">
+    <%= f.label :message, class: "control-label" %><br/>
+    <%= f.text_area :message, class: "form-control" %>
+  </div>
+  </br></br>
+  <div class="form-group">
+    <%= f.submit "Send", class: "btn btn-facebook"%>
   </div>
 <% end %>

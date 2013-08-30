@@ -1,15 +1,26 @@
 <%= simple_form_for(@address, :html => {:class => 'form-inline', :id => 'address-form'}) do |f| %>
   <%= f.error_notification %>
-  <div class="text-info">Street address and postal code will not be displayed publicly</div>
-  <%= f.input :street_address %>
-  <%= f.input :city %>
-  <%= f.input :state, :include_blank => true,
-    prompt: 'Select a country first',
-    collection: states,
-    value_method: :last %>
-  <%= f.input :country, :include_blank => true,
-    collection: countries,
-    value_method: :last %>
-  <%= f.input :postal_code %>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.input :street_address %>
+  </div></br></br>
+  <div class="form-group">
+    <%= f.input :city %>
+  </div></br></br>
+  <div class="form-group">
+    <%= f.input :country, :include_blank => true,
+          collection: countries,
+          value_method: :last %>
+  </div></br></br>
+  <div class="form-group">
+    <%= f.input :state, :include_blank => true,
+        prompt: 'Select a country first',
+        collection: states,
+        value_method: :last %>
+  </div></br></br>
+  <div class="form-group">
+    <%= f.input :postal_code %>
+  </div></br></br>
+  <div class="form-group">
+    <%= f.submit "Save Address", class: "btn btn-twitter" %>
+  </div>
 <% end %>

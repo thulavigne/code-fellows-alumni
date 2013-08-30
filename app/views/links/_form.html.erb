@@ -1,13 +1,18 @@
 <%= form_for [@object, @link] do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <p>
-    <%= f.label :url_text, "Full URL with http/https" %>
-    <%= f.text_field :url_text %>
-  </p>
-  <p>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.select :url_type, url_types %>
-  </p>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :url_text, "Full URL with http/https", class: "control-label" %>
+    <%= f.text_field :url_text, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: "control-label" %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url_type, class: "control-label" %>
+    <%= f.select :url_type, url_types, class: "form-control" %>
+  </div>
+  <div class="form-group" style="float:right;">
+    <%= f.submit "Save Link", class: "btn btn-twitter" %>
+  </div>
 <% end %>

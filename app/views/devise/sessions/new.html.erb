@@ -1,19 +1,75 @@
-<div class="container_inner">
-<h2>Sign in</h2>
+<body data-spy="scroll" data-target="#header" class="landing">
+  <header id="header" class="navbar navbar-fixed-top bg-primary dk" style="background:#b43d3d;"  data-spy="affix" data-offset-top="1">
+    <div class="container">
+      <a class="navbar-brand" href="#">Code Fellows</a>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><em>Alumni Portal</em></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "English", locale: "en" %></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "中文", locale: "ch" %></small></p>
+      <ul class="nav navbar-nav pull-right">
+        <li class="hide">
+          <a href="#header">Home</a>
+        </li>
+        <li class="hidden-xs"><%= link_to (t "application.home"), root_path %></li>
+        <li class="hidden-xs"><%= link_to (t "application.alumni"), users_path %></li>
+        <% if user_signed_in? %>
+          <li class="hidden-xs"><%= link_to (t "application.my_profile"), current_user %></li>
+          <li class="hidden-xs"><%= link_to (t "application.my_projects"), projects_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <li class="hidden-xs"><%= link_to (t "application.sign_up"), new_user_registration_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in"), new_user_session_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </header>
+  <section id="content" class="m-t-lg wrapper-md animated fadeInUp" style="padding-top:80px;">
+    <span class="nav-brand" href="index.html">Welcome, Code Fellow.</span>
+    <div class="row m-n">
+      <div class="col-md-4 col-md-offset-4 m-t-lg">
+        <section class="panel">
+          <header class="panel-heading text-center">
+            Sign In
+          </header>
+            <div class="panel-body">
+              <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+              <div class="form-group">
+                <%= f.label :username, class: "control-label" %>
+                <%= f.text_field :username, :placeholder => "peanutbutter", class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password, class: "control-label" %>
+                <%= f.password_field :password, id: "inputPassword", :placeholder => "Password", class: "form-control", type: "password" %>
+              </div>
+              <div class="checkbox">
+                <% if devise_mapping.rememberable? -%>
+                  <label>
+                    <%= f.check_box :remember_me %><%= f.label :remember_me %>
+                  </label>
+                <% end -%>
+              </div>
+              <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+                <a href="<%= new_password_path(resource_name) %>" class="pull-right m-t-xs">
+                  <small>Forgot your password?</small>
+                </a>
+              <% end -%>
+              <button type="submit" class="btn btn-facebook">Sign in</button>
+              <div class="line line-dashed"></div>
+                <%- if devise_mapping.omniauthable? %>
+                  <%- resource_class.omniauth_providers.each do |provider| %>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :username %>
-  <%= f.text_field :username %></div>
-
-  <div><%= f.label :password %>
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %><%= f.label :remember_me %></div>
-  <% end -%></br>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
-</div>
+                    <a href="<%= omniauth_authorize_path(resource_name, provider) %>" class="btn btn-twitter btn-block"><i class="icon-twitter pull-left"></i><%= "Sign in with #{provider.to_s.titleize}" %></a>
+                  <% end -%>
+                <% end -%>
+              <div class="line line-dashed"></div>
+              <p class="text-muted text-center"><small>Don't have an account?</small></p>
+              <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                <a href="<%= new_registration_path(resource_name) %>" class="btn btn-white btn-block">Sign Up</a>
+              <% end -%>
+            <% end %>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</body>

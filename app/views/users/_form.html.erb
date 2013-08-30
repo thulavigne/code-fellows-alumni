@@ -1,50 +1,84 @@
-<%= form_for @user, :html => { :multipart => true } do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="container">
-    <div class="column">
-      <p>
-        <b><%= t ".profile_picture" %></b><br/>
-          <%= f.file_field :avatar %></br>
-          <%= image_tag @user.avatar.url(:medium) %>
-      </p>
-      <p>
-        <b><%= f.label :first_name, (t ".first_name") %></b>
-        <%= f.text_field :first_name %>
-      </p>
-      <p>
-        <b><%= f.label :last_name, (t ".last_name") %></b>
-        <%= f.text_field :last_name %>
-      </p>
-      <p>
-        <b><%= f.label :phone_number, (t ".phone_number") %></b>
-        <%= f.text_field :phone_number %></br>
-      </p>
-      <p>
-        <b><%= f.label :twitter_handle, (t ".twitter_handle") %></b>
-        <%= f.text_field :twitter_handle %></br>
-      </p>
-      <p>
-        <b><%= f.label :preferred_language, (t ".preferred_language") %></b>
-        <%= f.select :preferred_language, User.language_options %></br>
-      </p>
-      <%= f.submit (t ".update_profile") %>
+<div class="form-horizontal">
+  <%= form_for @user, :html => { :multipart => true } do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group m-t-lg">
+      <label class="col-sm-3 control-label"><%= t ".profile_picture" %></label>
+      <div class="col-sm-4 media m-t-none">
+        <div class="pull-left text-center media-lg thumb-lg padder-v"><%= image_tag @user.avatar.url(:medium), class: "img-circle" %></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Change Photo</label>
+      <div class="col-sm-4">
+        <%= f.file_field :avatar %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><%= f.label :first_name, (t ".first_name") %></label>
+      <div class="col-sm-4">
+        <%= f.text_field :first_name, class: "bg-focus form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><%= f.label :last_name, (t ".last_name") %></label>
+      <div class="col-sm-4">
+        <%= f.text_field :last_name, class: "bg-focus form-control" %>
+        <div class="line line-dashed m-t-lg"></div>
+      </div>
     </div>
 
-      <div class="span8">
-        <b><%= f.label :introduction, (t "application.introduction") %></b>
-        <%= f.text_area :introduction, :placeholder => (t ".introduction_prompt") %>
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><%= f.label :twitter_handle, (t ".twitter_handle") %></label>
+      <div class="col-sm-4">
+        <%= f.text_field :twitter_handle, :placeholder => "@pbnj", class: "form-control" %>
       </div>
-      <div class="span8">
-        <b><%= f.label :skills, (t "application.skills") %></b>
-        <%= f.text_area :skills, :placeholder => (t ".skills_prompt") %>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><%= f.label :phone_number, (t ".phone_number") %></label>
+      <div class="col-sm-4">
+        <%= f.text_field :phone_number, class: "form-control" %>
       </div>
-      <div class="span8">
-        <b><%= f.label :desired_job_situation, (t ".desired_job_situation") %></b>
-        <%= f.text_area :desired_job_situation, :placeholder => (t ".desired_job_situation_prompt") %>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><%= f.label :preferred_language, (t ".preferred_language") %></label>
+      <div class="col-sm-4">
+        <%= f.select :preferred_language, User.language_options, class: "form-control" %>
       </div>
-      <div class="span8">
-        <b><%= f.label :desired_job_location, (t ".desired_job_location") %></b>
-        <%= f.text_area :desired_job_location, :placeholder => (t ".desired_job_location_prompt") %>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><%= f.label :introduction, (t "application.introduction") %></label>
+      <div class="col-sm-5">
+        <%= f.text_area :introduction, :placeholder => (t ".introduction_prompt"), class: "form-control" %>
       </div>
-  </div>
-<% end %>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><%= f.label :skills, (t "application.skills") %></label>
+      <div class="col-sm-5">
+        <%= f.text_area :skills, :placeholder => (t ".skills_prompt"), class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><%= f.label :desired_job_situation, (t ".desired_job_situation") %></label>
+      <div class="col-sm-5">
+        <%= f.text_area :desired_job_situation, :placeholder => (t ".desired_job_situation_prompt"), class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label"><%= f.label :desired_job_location, (t ".desired_job_location") %></label>
+      <div class="col-sm-5">
+        <%= f.text_area :desired_job_location, :placeholder => (t ".desired_job_location_prompt"), class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-4 col-sm-offset-3">
+        <%= f.submit (t ".update_profile"), class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

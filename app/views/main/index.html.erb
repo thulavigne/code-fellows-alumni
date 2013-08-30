@@ -1,58 +1,202 @@
-<div class="welcome">
-  <center>
-    <div class="welcome_block">
-      <h2 class="welcome_h2"><%= t ".welcome" %></h2>
-      <p style="font-size:25px; line-height:35px;"><%= t ".welcome_fine_print" %></h4>
+<body data-spy="scroll" data-target="#header" class="landing">
+  <header id="header" class="navbar navbar-fixed-top bg-primary dk" style="background:#b43d3d;"  data-spy="affix" data-offset-top="1" style="background:#b43d3d;">
+    <div class="container">
+      <a class="navbar-brand" href="#">Code Fellows</a>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><em>Alumni Portal</em></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "English", locale: "en" %></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "中文", locale: "ch" %></small></p>
+      <ul class="nav navbar-nav pull-right">
+        <li class="hide">
+          <a href="#header">Home</a>
+        </li>
+        <li class="hidden-xs"><%= link_to (t "application.home"), root_path %></li>
+        <li class="hidden-xs"><%= link_to (t "application.alumni"), users_path %></li>
+        <% if user_signed_in? %>
+          <li class="hidden-xs"><%= link_to (t "application.my_profile"), current_user %></li>
+          <li class="hidden-xs"><%= link_to (t "application.my_projects"), projects_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <li class="hidden-xs"><%= link_to (t "application.sign_up"), new_user_registration_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in"), new_user_session_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
+        <% end %>
+      </ul>
     </div>
-  </center>
-</div>
-<div class="home_section_color">
-  <h1><%= t ".employer_question" %></h1>
-    <p>
-      <%= t ".employer_answer1" %></br>
-      <%= t ".employer_answer2" %>
-    </p>
-  </br>
-  <h1><%= t ".codefellow_question" %></h1>
-    <p><%= t ".codefellow_answer" %></p>
-</div>
-<div class="home_section">
-  <% if !@random_user.nil? %>
-      <% if @random_user2.nil? %>
-        <h1><%= t ".featured_codefellow" %></h1>
-      <% else %>
-        <h1><%= t ".featured_codefellows" %></h1>
-      <% end %>
-      <center>
-        <div class="random_user">
-          <div class="user_img">
-            <%= link_to (image_tag @random_user.avatar.url(:medium)),
-                @random_user %>
+  </header>
+  <section id="content">
+    <div class="bg-primary dk" style="background:#b43d3d;">
+      <div class="carousel carousel-fade slide auto" id="c-slide">
+        <ol class="carousel-indicators">
+          <li data-target="#c-slide" data-slide-to="0" class="active"></li>
+          <li data-target="#c-slide" data-slide-to="1" class=""></li>
+          <li data-target="#c-slide" data-slide-to="2" class=""></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="item active row">
+            <div class="col-xs-6 text-right">
+              <img src="assets/Monitor.png" class="animated fadeInUpBig m-r-lg">
+            </div>
+            <div class="col-sm-6">
+              <h2 class="animated fadeInUp"><strong class="text-white">Code Fellows</strong><br><span class="font-thin">Alumni Portal</span></h2>
+              <h4 class="animated fadeInUpBig hidden-xs">
+                Are you a Code Fellow?</br>Use this website to showcase your skills and talents to</br>potential employers and share projects you have worked on.
+              </h4>
+            </div>
           </div>
-          <div class="user_intro">
-            <h2><%= link_to @random_user.first_name.to_s +
-            " " + @random_user.last_name.to_s, @random_user %></h2>
-            <%= @random_user.introduction %></br>
-            <button><%= link_to (t ".check_out_my_projects"), @random_user, { :class => 'button'} %></button>
+          <div class="item row">
+            <div class="col-xs-5 text-right">
+              <h2 class="animated fadeInLeftBig"><strong class="text-white">Excellent</strong> <span class="font-thin"><br>Individuals</span></h2>
+              <h4 class="animated fadeInUpBig hidden-xs">
+                Are you an employer?</br>Use this website to search for technology professionals</br>who have successfully completed the Code Fellows</br>coding bootcamps.
+              </h4>
+            </div>
+            <div class="col-xs-6">
+              <img src="assets/CFLadies.png" class="animated fadeInRightBig">
+            </div>
           </div>
-        </div>
-      </center>
-    </br></br>
-  <% end %>
-  <% if !@random_user2.nil? %>
-      <center>
-        <div class="random_user">
-          <div class="user_img">
-            <%= link_to (image_tag @random_user2.avatar.url(:medium)),
-                @random_user2 %>
-          </div>
-          <div class="user_intro">
-            <h2><%= link_to @random_user2.first_name.to_s +
-            " " + @random_user2.last_name.to_s, @random_user2 %></h2>
-            <%= @random_user2.introduction %></br>
-            <button><%= link_to (t ".check_out_my_projects"), @random_user2, { :class => 'button'} %></button>
+          <div class="item row">
+            <div class="col-xs-6 text-right">
+              <img src="assets/macpro.png" class="animated fadeInDownBig m-r-lg">
+            </div>
+            <div class="col-xs-6">
+              <h2 class="animated fadeInUp"><strong class="text-white">2</strong> <span class="font-thin">Runnable<br> Applications</span></h2>
+              <p class="animated fadeInDown hidden-xs">
+                <strong>Tasks</strong> and <strong>Notes</strong> are built with Backbone with CRUD and Search functions. <br>Have Fun!
+              </p>
+            </div>
           </div>
         </div>
-      </center>
-  <% end %>
-</div>
+        <a class="left carousel-control" href="#c-slide" data-slide="prev">
+          <i class="icon-angle-left"></i>
+        </a>
+        <a class="right carousel-control" href="#c-slide" data-slide="next">
+          <i class="icon-angle-right"></i>
+        </a>
+      </div>
+    </div>
+    <div class="bg-light" id="features">
+      <div class="container">
+        <p>&nbsp;</p>
+        <div class="row">
+          <div class="col-sm-4 lt wrapper-xl">
+            <p class="text-center">
+              <span class="icon-stack icon-2x">
+                <i class="icon-circle icon-stack-base text-success"></i>
+                <i class="icon-bold text-white"></i>
+              </span>
+            </p>
+            <div>
+              <h3 class="text-center">Bootstrap 3.0</h3>
+              <p>This project is based on Bootstrap 3. the sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.</p>
+            </div>
+          </div>
+          <div class="col-sm-4 lter wrapper-xl">
+            <p class="text-center">
+              <span class="icon-stack icon-2x">
+                <i class="icon-circle icon-stack-base text-info"></i>
+                <i class="icon-bolt text-white"></i>
+              </span>
+            </p>
+            <div>
+              <h3 class="text-center">Lightweight</h3>
+              <p>We only choose the lightweight plugins, but with rich functions. we use tiny components, css and js size is first consideration.</p>
+            </div>
+          </div>
+          <div class="col-sm-4 wrapper-xl bg-white">
+            <p class="text-center">
+              <span class="icon-stack icon-2x">
+                <i class="icon-circle icon-stack-base text-danger"></i>
+                <i class="icon-html5 text-white"></i>
+              </span>
+            </p>
+            <div>
+              <h3 class="text-center">HTML5 & CSS3</h3>
+              <p>This project ues HTML5 and CSS3 to build the components and widgets. the pages use header, nav, section to build the layout.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 wrapper-xl dk">
+            <p class="text-center">
+              <span class="icon-stack icon-2x">
+                <i class="icon-circle icon-stack-base text-info"></i>
+                <i class="icon-columns text-white"></i>
+              </span>
+            </p>
+            <div>
+              <h3 class="text-center">App layout</h3>
+              <p>We create a flexiable layout for your web application -- vertical box(vbox) and horizontal box(hbox). you can use them to build any layout as you want!</p>
+            </div>
+          </div>
+          <div class="col-sm-4 wrapper-xl">
+            <p class="text-center">
+              <span class="icon-stack icon-2x">
+                <i class="icon-circle icon-stack-base text-warning"></i>
+                <i class="icon-dashboard text-white"></i>
+              </span>
+            </p>
+            <div>
+              <h3 class="text-center">8 color palettes</h3>
+              <p>We build many components for your project need. also they are extensible and easy to customize. </p>
+            </div>
+          </div>
+          <div class="col-sm-4 wrapper-xl dker">
+            <p class="text-center"><span class="icon-stack icon-2x">
+                <i class="icon-circle icon-stack-base text-primary"></i>
+                <i class="icon-lightbulb text-white"></i>
+              </span>
+            </p>
+            <div>
+              <h3 class="text-center">Runnable application</h3>
+              <p>We built two backbone applications for your insperation. they have the create, read, update, delete and search functions. have fun...</p>
+            </div>
+          </div>
+        </div>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div class="bg-light clearfix">
+      <div class="container text-center m-xl">
+        <% if !@random_user.nil? %>
+            <% if @random_user2.nil? %>
+              <h1><%= t ".featured_codefellow" %></h1>
+            <% else %>
+              <h1><%= t ".featured_codefellows" %></h1>
+            <% end %>
+            <div class="col-lg-6">
+              <div class="random_user">
+                <div class="user_img">
+                  <%= link_to (image_tag @random_user.avatar.url(:medium), class: "img-circle"),
+                      @random_user %>
+                </div>
+                <div class="user_intro">
+                  <h2><%= link_to @random_user.first_name.to_s +
+                  " " + @random_user.last_name.to_s, @random_user %></h2>
+                  <div class="col-lg-8 col-lg-offset-2">
+                  <%= @random_user.introduction %></br></br></div>
+                  <%= link_to (t ".check_out_my_projects"), @random_user, class: "btn btn-facebook" %>
+                </div>
+              </div>
+            </div>
+          </br></br>
+        <% end %>
+        <% if !@random_user2.nil? %>
+            <div class="col-lg-6">
+              <div class="random_user">
+                <div class="user_img">
+                  <%= link_to (image_tag @random_user2.avatar.url(:medium), class: "img-circle"),
+                      @random_user2 %>
+                </div>
+                <div class="user_intro">
+                  <h2><%= link_to @random_user2.first_name.to_s +
+                  " " + @random_user2.last_name.to_s, @random_user2 %></h2>
+                  <div class="col-lg-8 col-lg-offset-2"><%= @random_user2.introduction %></br></br></div>
+                  <%= link_to (t ".check_out_my_projects"), @random_user2, class: "btn btn-facebook" %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</body>

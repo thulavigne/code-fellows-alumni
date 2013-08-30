@@ -1,36 +1,71 @@
-<div class="container_inner">
-  <% if user_signed_in? %>
-    <div class="signed_in">
-      <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
+<body data-spy="scroll" data-target="#header" class="landing">
+  <header id="header" class="navbar navbar-fixed-top bg-primary dk" style="background:#b43d3d;"  data-spy="affix" data-offset-top="1">
+    <div class="container">
+      <a class="navbar-brand" href="#">Code Fellows</a>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><em>Alumni Portal</em></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "English", locale: "en" %></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "中文", locale: "ch" %></small></p>
+      <ul class="nav navbar-nav pull-right">
+        <li class="hide">
+          <a href="#header">Home</a>
+        </li>
+        <li class="hidden-xs"><%= link_to (t "application.home"), root_path %></li>
+        <li class="hidden-xs"><%= link_to (t "application.alumni"), users_path %></li>
+        <% if user_signed_in? %>
+          <li class="hidden-xs"><%= link_to (t "application.my_profile"), current_user %></li>
+          <li class="hidden-xs"><%= link_to (t "application.my_projects"), projects_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <li class="hidden-xs"><%= link_to (t "application.sign_up"), new_user_registration_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in"), new_user_session_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
+        <% end %>
+      </ul>
     </div>
-  <% end %>
-
-  <%= link_to (t "application.back"), :back %>
-  <h2><%= t ".my_projects" %></h2>
-
-  <p>
-    <%= link_to (t "application.add_project"), new_project_path, id: "new_link", remote: true %>
-  </p>
-  <table class="table table-striped table-bordered">
-    <thead>
-      <th><%= t "application.image" %></th>
-      <th><%= t "application.title" %></th>
-      <th><%= t "application.description" %></th>
-    </thead>
-    <tbody>
-      <% @projects.each do |p| %>
-      <div id="created_project">
-        <tr>
-          <td><%= link_to (image_tag p.attach.url(:thumb)), p %></td>
-          <td class="project_title_column"><%= link_to p.title, project_path(p) %></td>
-          <td><%= link_to p.description, project_path(p) %></td>
-          <% if current_user == @user %>
-            <td><%= link_to (t "application.edit"), edit_project_path(p) %></td>
-            <td><%= link_to (t "application.delete"), p, method: :delete, data: { confirm: (t "application.confirm") } %></td>
-          <% end %>
-        </tr>
+  </header>
+  <section id="content" class="m-t-lg wrapper-md animated fadeInUp" style="padding-top:80px;">
+    <span class="nav-brand" href="index.html"><%= t " .my_projects" %></span>
+    <section class="scrollable wrapper">
+      <div class="tab-content">
+        <div class="tab-pane active" id="static">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 m-t-lg">
+              <section class="panel">
+                <header class="panel-heading">
+                  Check out all these cool projects!
+                </header>
+                <div class="table-responsive">
+                  <table class="table table-striped b-t text-sm">
+                    <thead>
+                      <tr>
+                        <th><%= t "application.image" %></th>
+                        <th><%= t "application.title" %></th>
+                        <th><%= t "application.description" %></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @projects.each do |p| %>
+                        <tr>
+                          <td><%= link_to (image_tag p.attach.url(:thumb)), p %></td>
+                          <td><%= link_to p.title, project_path(p) %></td>
+                          <td><%= link_to p.description, project_path(p) %></td>
+                          <% if current_user == @user %>
+                            <td><%= link_to (t "application.edit"), edit_project_path(p) %></td>
+                            <td><%= link_to (t "application.delete"), p, method: :delete, data: { confirm: (t "application.confirm") } %></td>
+                          <% end %>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+                <footer class="panel-footer">
+                  <%= link_to (t " application.add_project"), new_project_path, id: "new_link", remote: true %>
+                </footer>
+              </section>
+            </div>
+          </div>
+        </div>
       </div>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+    </div>
+  </section>
+</body>

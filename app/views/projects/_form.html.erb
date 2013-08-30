@@ -1,8 +1,18 @@
 <%= simple_form_for(@project, :html => {:class => 'form-inline'}) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :title %>
-  <%= f.input :description, id: "project_description" %>
-  <%= f.input :date_deployed, :include_blank => true %>
-  <%= f.input :attach %>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.input :title, class: "form-control" %>
+  </div></br></br>
+  <div class="form-group">
+    <%= f.input :description, id: "project_description", class: "form-control" %>
+  </div></br></br>
+  <div class="form-group">
+    <%= f.input :date_deployed, :include_blank => true, class: "form-control" %>
+  </div></br></br>
+  <div class="form-group">
+    <%= f.input :attach, class: "form-control" %>
+  </div></br></br>
+  <div class="form-group">
+    <%= f.submit "Save Project", class: "btn btn-twitter" %>
+  </div>
 <% end %>

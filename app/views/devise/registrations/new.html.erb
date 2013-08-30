@@ -1,26 +1,68 @@
-<div class="container_inner">
-<h2>Sign up</h2>
+<body data-spy="scroll" data-target="#header" class="landing">
+  <header id="header" class="navbar navbar-fixed-top bg-primary dk" style="background:#b43d3d;"  data-spy="affix" data-offset-top="1">
+    <div class="container">
+      <a class="navbar-brand" href="#">Code Fellows</a>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><em>Alumni Portal</em></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "English", locale: "en" %></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "中文", locale: "ch" %></small></p>
+      <ul class="nav navbar-nav pull-right">
+        <li class="hide">
+          <a href="#header">Home</a>
+        </li>
+        <li class="hidden-xs"><%= link_to (t "application.home"), root_path %></li>
+        <li class="hidden-xs"><%= link_to (t "application.alumni"), users_path %></li>
+        <% if user_signed_in? %>
+          <li class="hidden-xs"><%= link_to (t "application.my_profile"), current_user %></li>
+          <li class="hidden-xs"><%= link_to (t "application.my_projects"), projects_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <li class="hidden-xs"><%= link_to (t "application.sign_up"), new_user_registration_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in"), new_user_session_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </header>
+  <section id="content" class="m-t-lg wrapper-md animated fadeInUp" style="padding-top:80px;">
+    <span class="nav-brand" href="index.html">Welcome, Code Fellow.</span>
+    <div class="row m-n">
+      <div class="col-md-4 col-md-offset-4 m-t-lg">
+        <section class="panel">
+          <header class="panel-heading text-center">
+            Sign Up
+          </header>
+            <div class="panel-body">
+              <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                <%= devise_error_messages! %>
+                <div class="form-group">
+                  <%= f.label :email, class: "control-label" %>
+                  <%= f.email_field :email, class: "form-control" %>
+                </div>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+                <div class="form-group">
+                  <%= f.label :username, class: "control-label" %>
+                  <%= f.text_field :username, class: "form-control" %>
+                </div>
 
-  <div><%= f.label :email %>
-  <%= f.email_field :email %></div>
+                <% if f.object.password_required? %>
+                  <div class="form-group">
+                    <%= f.label :password, class: "control-label" %>
+                    <%= f.password_field :password, class: "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :password_confirmation, class: "control-label" %>
+                    <%= f.password_field :password_confirmation, class: "form-control" %>
+                  </div>
+                <% end %>
 
-  <div><%= f.label :username %>
-  <%= f.text_field :username %></div>
-
-  <% if f.object.password_required? %>
-    <div><%= f.label :password %>
-    <%= f.password_field :password %></div>
-    <div><%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %></div>
-  <% end %>
-
-  </br>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
-</div>
+                <div class="form-group">
+                  <%= f.submit "Sign up", class: "btn btn-facebook" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</body>

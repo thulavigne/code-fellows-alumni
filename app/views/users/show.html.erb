@@ -1,125 +1,243 @@
-<div class="container_inner">
-  <% if user_signed_in? %>
-    <div class="signed_in">
-      <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
-    </div>
-  <% end %>
-  <%= link_to (t "application.back"), :back %>
-  <% if current_user == @user %>
-  | <%= link_to (t "application.edit_profile"), edit_user_path(@user) %>
-  <% end %>
-  <h2><%= @user.full_name %></h2>
-  <%= " " + @user.email%>
-  <% if @user.phone_number.present? %>
-     | <%= @user.phone_number %>
-  <% end %>
-  <% if @user.twitter_handle.present? %>
-     | <%= link_to @user.twitter_handle, "https://twitter.com/" + @user.twitter_handle, target: '_blank' %>
-  <% end %>
-  <% if @user.display_address.present? %>
-   | <%= " " + @user.display_address + " " %>
-  <% end %>&nbsp;&nbsp;&nbsp;&nbsp;
-  <% if current_user == @user %>
-    <% if @user.display_address.present? %>
-      <%= link_to (t ".change_address"), edit_address_path(@user.address) %>
-    <% else %>
-      <%= link_to (t ".add_address"), new_address_path %>
-    <% end %>
-  <% else %>
-    <%= link_to (t ".contact_me"), new_user_inquiry_path(@user) %>
-  <% end %><br><br>
-
-</br>
-  <div class="row">
-    <div class="span4">
-      <%= image_tag @user.avatar.url(:medium) %>
-    </div>
-    <div class="span8" style="float:left;">
-      <p>
-        <h2><%= t ".what_am_I_about" %></h2>
-        <%= @user.introduction %>
-      </p>
-    </div>
-  </div>
-</br>
-  <div class="row">
-    <div class="span4">
-      <p>
-        <h2><%= t "application.skills"%></h2>
-        <%= @user.skills %>
-      </p>
-    </div>
-    <div class="span4">
-      <p>
-        <h2><%= t ".what_is_my_dream_job" %></h2>
-        <%= @user.desired_job_situation %>
-      </p>
-    </div>
-
-    <div class="span4">
-      <p>
-        <h2><%= t ".where_is_my_dream_job" %></h2>
-        <%= @user.desired_job_location %>
-      </p>
-    </div>
-  </div><br><br>
-
-  <div class="row">
-    <div class="span8">
-      <p>
-        <h2><%= t ".online_presence" %></h2>
-        <% if current_user == @user %>
-          <%= link_to (t "application.add_link"), new_user_link_path(@user), id: "new_user_link", remote: true %>
-        <% end %>
-      </p>
-      <%= render "links/links_form" %>
-    </div>
-    <div class="span4">
-      <p>
-        <h2><%= t ".projects" %></h2>
-        <% if current_user == @user %>
-          <%= link_to (t ".add_project"), new_project_path %>
-        <% end %>
-      </p>
-      <table class="table table-striped table-bordered">
-        <thead>
-          <th><%= t "application.title" %></th>
-         </thead>
-         <tbody>
-           <% @user.projects.each do |p| %>
-             <tr>
-               <td><%= link_to p.title, project_path(p) %></td>
-               <% if current_user == @user %>
-                 <td><%= link_to (t "application.edit"), edit_project_path(p) %></td>
-                 <td><%= link_to (t "application.delete"), p, method: :delete, data: { confirm: (t "application.confirm") } %></td>
-               <% end %>
-             </tr>
-           <% end %>
-         </tbody>
-      </table>
-    </div>
-
-    <div class="span12">
-      <p>
-        <h2><%= t ".videos" %></h2>
-        <% if current_user == @user %>
-          <%= link_to (t ".add_video"), new_video_path, id: "new_video", remote: true %>
-        <% end %>
-      </p>
-      <div id="video_url">
-        <% @user.videos.take(2).each do |video| %>
-          <p><h2><%= link_to video.title, video %></h2></p>
-          <p><%= video.description %></p>
-          <p><a href="<%= video.video_link %>"></a></p>
-          <% if current_user == @user %>
-            <%= link_to (t "application.edit"), edit_video_path %> |
-            <%= link_to (t "application.delete"), p, method: :delete, data: { confirm: (t "application.confirm") } %>
-          <% end %>
-          </br></br>
-        <% end %>
-        </br>
-        <%= link_to (t "application.view_all"), videos_path %>
-      </div>
-    </div>
-  </div>
-</div>
+<body>
+  <section class="hbox stretch">
+    <!-- .aside -->
+    <aside class="bg-dark aside-md" id="nav">
+      <section class="vbox">
+        <header class="bg-dark nav-bar">
+          <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="body">
+            <i class="icon-reorder"></i>
+          </a>
+          <span class="nav-brand"><%= link_to "Home", root_path %></span>
+          <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user">
+            <i class="icon-comment-alt"></i>
+          </a>
+        </header>
+        <footer class="footer bg-gradient hidden-xs">
+          <a href="#nav" data-toggle="class:nav-vertical" class="btn btn-sm btn-link m-l-n-sm">
+            <i class="icon-reorder"></i>
+          </a>
+        </footer>
+        <section>
+          <div class="bg-dark lter nav-user hidden-xs pos-rlt">
+            <div class="nav-avatar pos-rlt">
+              <a href="#" class="thumb-sm avatar animated rollIn" data-toggle="dropdown">
+                <%= image_tag @user.avatar.url(:medium) %>
+                <span class="caret caret-white"></span>
+              </a>
+              <ul class="dropdown-menu m-t-sm animated fadeInLeft">
+                <span class="arrow top"></span>
+                <li>
+                  <%= link_to (t "application.home"), root_path %>
+                </li>
+                <li>
+                  <%= link_to (t "application.alumni"), users_path %>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <% if current_user == @user %>
+                    <% if @user.display_address.present? %>
+                      <%= link_to (t ".change_address"), edit_address_path(@user.address) %>
+                    <% else %>
+                      <%= link_to (t ".add_address"), new_address_path %>
+                    <% end %>
+                  <% end %>
+                </li>
+                <li>
+                  <% if current_user == @user %>
+                    <%= link_to (t ".edit_profile"), edit_user_path(@user) %>
+                  <% end %>
+                </li>
+                <% if user_signed_in? %>
+                  <li><%= link_to (t "application.my_profile"), current_user %></li>
+                  <li><%= link_to (t "application.my_projects"), projects_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %></li>
+                <% else %>
+                  <li><%= link_to (t "application.sign_up"), new_user_registration_path %></li>
+                  <li><%= link_to (t "application.sign_in"), new_user_session_path %></li>
+                  <li><%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
+                <% end %>
+                  <li class="divider"></li>
+                  <li><a href="https://www.codefellows.org/" target="0">Code Fellows Site</a></li>
+              </ul>
+            </div>
+            <div class="nav-msg">
+              <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                <div class="arrow left"></div>
+                <section class="panel bg-white">
+                  <header class="panel-heading">
+                    <strong>You have <span class="count-n">2</span> notifications</strong>
+                  </header>
+                </section>
+              </section>
+            </div>
+          </div>
+          <nav class="nav-primary hidden-xs">
+            <ul class="nav">
+              <% if current_user == @user %>
+                <li>
+                  <%= link_to (t "application.edit_profile"), edit_user_path(@user) %>
+                </li>
+              <% end %>
+              <% if current_user == @user %>
+                <% if @user.display_address.present? %>
+                  <li><%= link_to (t " .change_address" ), edit_address_path(@user.address) %></li>
+                <% else %>
+                  <li><%= link_to (t " .add_address"), new_address_path %></li>
+                <% end %>
+              <% end %>
+              <% if current_user == @user %>
+                <li><%= link_to (t "application.my_profile"), current_user %></li>
+                <li><%= link_to (t "application.my_projects"), projects_path %></li>
+                <li><%= link_to "My Videos", videos_path %></li>
+              <% end %>
+            </ul>
+          </nav>
+        </section>
+      </section>
+    </aside>
+    <!-- /.aside -->
+    <!-- .vbox -->
+    <section id="content">
+      <section class="vbox">
+        <header class="header bg-white b-b">
+          <p>Welcome to <%= @user.first_name %>'s profile</p>
+        </header>
+        <section class="scrollable">
+          <section class="hbox stretch">
+            <aside class="aside-large bg-light lter b-r">
+              <section class="vbox">
+                <section class="scrollable">
+                  <div class="wrapper">
+                    <div class="clearfix m-b">
+                      <a href="#" class="pull-left thumb m-r">
+                        <%= image_tag @user.avatar.url(:medium) %>
+                      </a>
+                      <div class="clear">
+                        <div class="h3 m-t-xs m-b-xs"><%= @user.full_name %></div>
+                        <small class="text-muted">
+                          <% if @user.display_address.present? %>
+                            <%= " " + @user.display_address + " " %>
+                          <% end %>
+                        </small></br>
+                        <small class="text-muted">
+                          <% if @user.phone_number.present? %>
+                             <%= @user.phone_number %>
+                          <% end %>
+                        </small>
+                      </div>
+                    </div>
+                    <div class="btn-group btn-group-justified m-b">
+                      <% if current_user == @user %>
+                        <%= link_to (t ".edit_profile"), edit_user_path(@user), class: "btn btn-success btn-rounded" %>
+                      <% else %>
+                        <% if @user.twitter_handle.present? %>
+                          <a class="btn btn-success btn-rounded" href="http://twitter.com/<%= @user.twitter_handle %>" target="_blank">
+                            <i class="icon-twitter"></i>
+                            Follow
+                          </a>
+                        <% end %>
+                      <% end %>
+                      <% if current_user == @user %>
+                        <% if @user.display_address.present? %>
+                          <%= link_to "Edit Address", edit_address_path(@user.address), class: "btn btn-info btn-rounded" %>
+                        <% else %>
+                          <%= link_to (t ".add_address"), new_address_path, class: "btn btn-info btn-rounded" %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to (t ".contact_me"), new_user_inquiry_path(@user), class: "btn btn-info btn-rounded" %>
+                      <% end %>
+                    </div>
+                    <div>
+                      <span class="text-uc text-muted"><b>about me</b></span>
+                      <p><%= @user.introduction %></p>
+                      <span class="text-uc text-muted"><b>my skills</b></span>
+                      <p><%= @user.skills %></p>
+                      <span class="text-uc text-muted"><b>Dream Job</b></span>
+                      <p><%= @user.desired_job_situation %></p>
+                      <span class="text-uc text-muted"><b>Dream Location</b></span>
+                      <p><%= @user.desired_job_location %></p>
+                      <div class="line"></div>
+                      <span class="text-uc text-muted"><b>Let's Connect!</b></span>
+                      <p class="m-t-sm">
+                        <span class="btn btn-rounded btn-twitter btn-icon"><i class="icon-twitter"></i></span>
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              </section>
+            </aside>
+            <aside class="bg-white">
+              <section class="vbox">
+                <header class="header bg-light bg-gradient">
+                  <ul class="nav nav-tabs nav-white">
+                    <li class="active"><a href="#pagelinks" data-toggle="tab">Other Pages</a></li>
+                    <li class=""><a href="#myprojects" data-toggle="tab">My Projects</a></li>
+                    <li class=""><a href="#myvideos" data-toggle="tab">My Videos</a></li>
+                  </ul>
+                </header>
+                <section class="scrollable">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="pagelinks">
+                      <%= render "links/links_form" %>
+                      <div style="padding:10px 20px;">
+                        <% if current_user == @user %>
+                          <%= link_to "Add New", new_user_link_path(@user), id: "new_user_link", remote: true %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="myprojects">
+                      <% @user.projects.each do |p| %>
+                        <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
+                          <li class="list-group-item">
+                            <span class="clear">
+                              <% if current_user == @user %>
+                                <small class="pull-right">
+                                  <%= link_to (t "application.edit"), edit_project_path(p) %> |
+                                  <%= link_to (t "application.delete"), p, method: :delete, data: { confirm: (t "application.confirm") } %>
+                                </small>
+                              <% end %>
+                              <strong class="block">
+                                <%= link_to p.title, project_path(p) %>
+                              </strong>
+                            </span>
+                          </li>
+                        </ul>
+                      <% end %>
+                      <div style="padding:10px 20px;">
+                        <% if current_user == @user %>
+                        <%= link_to "Add New", new_project_path, id: "new_link" %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="myvideos">
+                      <div class="wrapper">
+                        <div style="padding-bottom:20px;">
+                          <%= link_to "View All", videos_path, class: "btn" %>
+                          <% if current_user == @user %>
+                            | <%= link_to "Add New", new_video_path, id: "new_video", class: "btn" %>
+                          <% end %>
+                        </div>
+                        <div id="video_url">
+                          <% @user.videos.take(4).each do |video| %>
+                          <div class="col-lg-6">
+                            <h4><%= link_to video.title, video %></h4>
+                            <p><%= video.description %></p>
+                            </br><a href="<%= video.video_link %>"></a>
+                          </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </section>
+            </aside>
+          </section>
+        </section>
+      </section>
+      <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="body"></a>
+    </section>
+    <!-- /.vbox -->
+  </section>
+</body>

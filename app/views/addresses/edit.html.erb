@@ -1,10 +1,41 @@
-<% if user_signed_in? %>
-  <div class="signed_in">
-    <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
-  </div>
-<% end %>
-<div class="container_inner">
-  <%= link_to "Back", :back %>
-  <h2 id="address-title">Edit Address</h2>
-  <%= render "form" %>
-</div>
+<body data-spy="scroll" data-target="#header" class="landing">
+  <header id="header" class="navbar navbar-fixed-top bg-primary dk"  data-spy="affix" data-offset-top="1">
+    <div class="container">
+      <a class="navbar-brand" href="#">Code Fellows</a>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><em>Alumni Portal</em></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "English", locale: "en" %></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "中文", locale: "ch" %></small></p>
+      <ul class="nav navbar-nav pull-right">
+        <li class="hide">
+          <a href="#header">Home</a>
+        </li>
+        <li class="hidden-xs"><%= link_to (t "application.home"), root_path %></li>
+        <li class="hidden-xs"><%= link_to (t "application.alumni"), users_path %></li>
+        <% if user_signed_in? %>
+          <li class="hidden-xs"><%= link_to (t "application.my_profile"), current_user %></li>
+          <li class="hidden-xs"><%= link_to (t "application.my_projects"), projects_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <li class="hidden-xs"><%= link_to (t "application.sign_up"), new_user_registration_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in"), new_user_session_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </header>
+  <section id="content" class="m-t-lg wrapper-md animated fadeInUp" style="padding-top:80px;">
+    <span class="nav-brand" href="index.html">Edit Your Address</span>
+    <div class="row m-n">
+      <div class="col-md-4 col-md-offset-4 m-t-lg">
+        <section class="panel">
+          <header class="panel-heading text-center">
+            You don't want people knocking on the wrong door, do you?
+          </header>
+          <div class="panel-body">
+            <%= render "form" %>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</body>

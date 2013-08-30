@@ -1,10 +1,140 @@
-<div class="container_inner">
-<% if user_signed_in? %>
-    <div class="signed_in">
-      <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
-    </div>
-<% end %>
-<%= link_to (t "application.back"), :back %>
-<h2><%= t "application.edit_profile" %></h2>
-<%= render "form" %>
-</div>
+<body>
+  <section class="hbox stretch">
+    <!-- .aside -->
+    <aside class="bg-dark aside-md" id="nav">
+      <section class="vbox">
+        <header class="bg-dark nav-bar">
+          <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="body">
+            <i class="icon-reorder"></i>
+          </a>
+          <span class="nav-brand"><%= link_to "Home", root_path %></span>
+          <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user">
+            <i class="icon-comment-alt"></i>
+          </a>
+        </header>
+        <footer class="footer bg-gradient hidden-xs">
+          <a href="#nav" data-toggle="class:nav-vertical" class="btn btn-sm btn-link m-l-n-sm">
+            <i class="icon-reorder"></i>
+          </a>
+        </footer>
+        <section>
+          <div class="bg-dark lter nav-user hidden-xs pos-rlt">
+            <div class="nav-avatar pos-rlt">
+              <a href="#" class="thumb-sm avatar animated rollIn" data-toggle="dropdown">
+                <%= image_tag @user.avatar.url(:medium) %>
+                <span class="caret caret-white"></span>
+              </a>
+              <ul class="dropdown-menu m-t-sm animated fadeInLeft">
+                <span class="arrow top"></span>
+                <li>
+                  <%= link_to (t "application.home"), root_path %>
+                </li>
+                <li>
+                  <%= link_to (t "application.alumni"), users_path %>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <% if current_user == @user %>
+                    <% if @user.display_address.present? %>
+                      <%= link_to (t ".change_address"), edit_address_path(@user.address) %>
+                    <% else %>
+                      <%= link_to (t ".add_address"), new_address_path %>
+                    <% end %>
+                  <% end %>
+                </li>
+                <li>
+                  <% if current_user == @user %>
+                    <%= link_to (t ".edit_profile"), edit_user_path(@user) %>
+                  <% end %>
+                </li>
+                <% if user_signed_in? %>
+                  <li><%= link_to (t "application.my_profile"), current_user %></li>
+                  <li><%= link_to (t "application.my_projects"), projects_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %></li>
+                <% else %>
+                  <li><%= link_to (t "application.sign_up"), new_user_registration_path %></li>
+                  <li><%= link_to (t "application.sign_in"), new_user_session_path %></li>
+                  <li><%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
+                <% end %>
+                  <li class="divider"></li>
+                  <li><a href="https://www.codefellows.org/" target="0">Code Fellows Site</a></li>
+              </ul>
+              <div class="visible-xs m-t m-b">
+                <a href="#" class="h3">John.Smith</a>
+                <p><i class="icon-map-marker"></i> London, UK</p>
+              </div>
+            </div>
+            <div class="nav-msg">
+              <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                <div class="arrow left"></div>
+                <section class="panel bg-white">
+                  <header class="panel-heading">
+                    <strong>You have <span class="count-n">2</span> notifications</strong>
+                  </header>
+                  <div class="list-group">
+                    <a href="#" class="media list-group-item">
+                      <span class="pull-left thumb-sm">
+                        <img src="images/avatar.jpg" alt="John said" class="img-circle">
+                      </span>
+                      <span class="media-body block m-b-none">
+                        Use awesome animate.css<br>
+                        <small class="text-muted">28 Aug 13</small>
+                      </span>
+                    </a>
+                    <a href="#" class="media list-group-item">
+                      <span class="media-body block m-b-none">
+                        1.0 initial released<br>
+                        <small class="text-muted">27 Aug 13</small>
+                      </span>
+                    </a>
+                  </div>
+                  <footer class="panel-footer text-sm">
+                    <a href="#" class="pull-right"><i class="icon-cog"></i></a>
+                    <a href="#">See all the notifications</a>
+                  </footer>
+                </section>
+              </section>
+            </div>
+          </div>
+          <nav class="nav-primary hidden-xs">
+            <ul class="nav">
+              <% if current_user == @user %>
+                <li>
+                  <%= link_to (t "application.edit_profile"), edit_user_path(@user) %>
+                </li>
+              <% end %>
+              <% if current_user == @user %>
+                <% if @user.display_address.present? %>
+                  <li><%= link_to (t " .change_address" ), edit_address_path(@user.address) %></li>
+                <% else %>
+                  <li><%= link_to (t " .add_address"), new_address_path %></li>
+                <% end %>
+              <% end %>
+              <% if current_user == @user %>
+                <li><%= link_to (t "application.my_profile"), current_user %></li>
+                <li><%= link_to (t "application.my_projects"), projects_path %></li>
+                <li><%= link_to "My Videos", videos_path %></li>
+              <% end %>
+            </ul>
+          </nav>
+        </section>
+      </section>
+    </aside>
+    <!-- .aside -->
+    <section id="content">
+      <section class="vbox">
+        <section class="scrollable wrapper">
+          <div class="tab-content">
+            <section class="tab-pane active" id="basic">
+              <span class="nav-brand" href="index.html"><%= t "application.edit_profile" %></span>
+              <%= render "form" %>
+            </section>
+          </div>
+        </section>
+      </section>
+    </section>
+    <!-- /.vbox -->
+  </section>
+</body>
+</html>

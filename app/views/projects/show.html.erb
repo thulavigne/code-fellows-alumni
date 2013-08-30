@@ -1,42 +1,66 @@
-<div class="container_inner">
-    <% if user_signed_in? %>
-      <div class="signed_in">
-        <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
-      </div>
-    <% end %>
-  <div id="project">
-    <p>
-      <%= link_to (t "application.back"), :back %>
-      <% if current_user == @project.user %>
-        | <%= link_to (t "application.edit"), edit_project_path %> |
-        <%= link_to (t "application.delete"), p, method: :delete, data: { confirm: (t "application.confirm") } %>
-      <% end %>
-    </p>
-      <h2><%= @project.title %></h2>
-        <b><%= t "application.description" %></b>
-        <%= @project.description %><br>
-        <b><%= t ".date_deployed" %></b>
-        <% if !@project.date_deployed.nil? %>
-          <%= @project.date_deployed.to_s(:date_deployed) %>
+<body data-spy="scroll" data-target="#header" class="landing">
+  <header id="header" class="navbar navbar-fixed-top bg-primary dk"  data-spy="affix" data-offset-top="1">
+    <div class="container">
+      <a class="navbar-brand" href="#">Code Fellows</a>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><em>Alumni Portal</em></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "English", locale: "en" %></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "中文", locale: "ch" %></small></p>
+      <ul class="nav navbar-nav pull-right">
+        <li class="hide">
+          <a href="#header">Home</a>
+        </li>
+        <li class="hidden-xs"><%= link_to (t "application.home"), root_path %></li>
+        <li class="hidden-xs"><%= link_to (t "application.alumni"), users_path %></li>
+        <% if user_signed_in? %>
+          <li class="hidden-xs"><%= link_to (t "application.my_profile"), current_user %></li>
+          <li class="hidden-xs"><%= link_to (t "application.my_projects"), projects_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <li class="hidden-xs"><%= link_to (t "application.sign_up"), new_user_registration_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in"), new_user_session_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
         <% end %>
-    </p>
-  </div>
-  <div>
-    <% if @project.attach.exists? then %>
-      <b><%= t "application.screenshot" %></b></br>
-      <%= image_tag @project.attach.url %>
-    <% end %>
-  </div>
-  </br>
-   <div class="row">
-    <div class="span6">
-      <p>
-        <b><%= t ".project_links" %> </b>
-        <% if current_user == @project.user %>&nbsp;&nbsp;
-          <%= link_to (t "application.add_link"), new_project_link_path(@object) %>
-        <% end %>
-      </p>
-      <%= render "links/links_form" %>
+      </ul>
     </div>
-  </div>
-</div>
+  </header>
+  <section id="content" class="m-t-lg wrapper-md animated fadeInUp" style="padding-top:80px;">
+    <span class="nav-brand" href="index.html"><%= @project.title %></span>
+    <div class="row m-n">
+      <div class="col-md-8 col-md-offset-2 m-t-lg">
+        <section class="panel">
+          <header class="panel-heading text-center">
+            This looks like a promising project. Eh?
+            <div style="float:right;">
+              <% if current_user == @project.user %>
+                <%= link_to (t " application.add_project"), new_project_path, id: "new_link" %> |
+                <%= link_to (t "application.edit"), edit_project_path %> |
+                <%= link_to (t "application.delete"), p, method: :delete, data: { confirm: (t "application.confirm") } %>
+              <% end %>
+            </div>
+          </header>
+          <div class="panel-body">
+            <b><%= t " application.description" %>:</b>
+            <%= @project.description %>
+            </br></br>
+            <b><%= t " .date_deployed" %>:</b>
+            <% if !@project.date_deployed.nil? %>
+              <%= @project.date_deployed.to_s(:date_deployed) %>
+            <% end %>
+            </br></br>
+            <b><%= t ".project_links" %>:</b>
+            </br></br>
+            <%= render "links/links_form" %>
+            <% if current_user == @project.user %>
+              <%= link_to (t " application.add_link"), new_project_link_path(@object) %>
+            <% end %>
+            </br></br>
+            <% if @project.attach.exists? then %>
+              <b><%= t "application.screenshot" %>:</b></br>
+              <div class="col-md-9 col-md-offset-1"><%= image_tag @project.attach.url %></div>
+            <% end %>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</body>

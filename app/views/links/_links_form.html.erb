@@ -1,24 +1,17 @@
 <%= form_for @object do |f| %>
-  <table class="table table-striped table-bordered">
-    <thead>
-      <th><%= t "application.url" %></th>
-      <th><%= t "application.link_type" %></th>
-      <th><%= t "application.link_description" %></th>
-     </thead>
-     <tbody>
-       <% @object.ordered_links.each do |link| %>
-         <tr>
-           <td class="link_column"><%= link_to link.url_text,
-              link.url_text, :target => "_blank" %>
-           <td><%= link.url_type %></td>
-           <td class="link_description_column"><%= link.description %></td>
-           <% if @object.associated_user == current_user %>
-            <td><%= link_to (t "application.edit"),
-              send("edit_#{@object.class.to_s.underscore}_link_path", @object, link) %></td>
-            <td><%= link_to (t "application.delete"), link, method: :delete, data: { confirm: (t "application.confirm") } %></td>
-           <% end %>
-         </tr>
-       <% end %>
-     </tbody>
-  </table>
+  <% @object.ordered_links.each do |link| %>
+    <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
+      <li class="list-group-item">
+        <span class="clear">
+              <% if @object.associated_user == current_user %>
+                <small class="pull-right">
+                  <%= link_to (t "application.edit"), send("edit_#{@object.class.to_s.underscore}_link_path", @object, link) %> |
+                  <%= link_to (t "application.delete"), link, method: :delete, data: { confirm: (t "application.confirm") } %>
+                </small>
+              <% end %>
+              <strong class="block"><%= link_to link.url_text, link.url_text, :target => "_blank" %></strong>
+        </span>
+      </li>
+    </ul>
+  <% end %>
 <% end %>

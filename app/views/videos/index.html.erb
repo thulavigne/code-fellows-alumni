@@ -1,22 +1,43 @@
-<div class="container_inner">
-  <% if user_signed_in? %>
-    <div class="signed_in">
-      <p style="color:#555; line-height:16px; margin:0px;"><%= t "application.signed_in_as" %> <%= current_user.email %></p>
+<body data-spy="scroll" data-target="#header" class="landing">
+  <header id="header" class="navbar navbar-fixed-top bg-primary dk" style="background:#b43d3d;"  data-spy="affix" data-offset-top="1">
+    <div class="container">
+      <a class="navbar-brand" href="#">Code Fellows</a>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><em>Alumni Portal</em></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "English", locale: "en" %></small></p>
+      <p class="navbar-text pull-left text-muted hidden-xs hidden-sm"><small class="text-muted"><%= link_to_unless_current "中文", locale: "ch" %></small></p>
+      <ul class="nav navbar-nav pull-right">
+        <li class="hide">
+          <a href="#header">Home</a>
+        </li>
+        <li class="hidden-xs"><%= link_to (t "application.home"), root_path %></li>
+        <li class="hidden-xs"><%= link_to (t "application.alumni"), users_path %></li>
+        <% if user_signed_in? %>
+          <li class="hidden-xs"><%= link_to (t "application.my_profile"), current_user %></li>
+          <li class="hidden-xs"><%= link_to (t "application.my_projects"), projects_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_out"), destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <li class="hidden-xs"><%= link_to (t "application.sign_up"), new_user_registration_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in"), new_user_session_path %></li>
+          <li class="hidden-xs"><%= link_to (t "application.sign_in_with_twitter"), user_omniauth_authorize_path(:twitter) %></li>
+        <% end %>
+      </ul>
     </div>
-  <% end %>
+  </header>
 
-  <%= link_to "Back", :back %>
-  <h2>My Videos</h2>
-
-  <p>
-    <%= link_to "Add video", new_video_path, id: "new_video", remote: true %>
-  </p>
-  <div id="video_url">
-    <% @videos.each do |video| %>
-      <p><%= link_to video.title, video %></p>
-      <p><%= video.description %></p>
-      <p><a href="<%= video.video_link %>"></a></p>
-      </br>
-    <% end %>
-  </div>
-</div>
+  <section id="content" class="m-t-lg wrapper-md animated fadeInUp" style="padding-top:80px;">
+    <span class="nav-brand" href="index.html">My Videos</span>
+    <div id="video_url">
+      <% @videos.each do |video| %>
+      <div class="col-lg-4">
+        <section class="panel">
+          <div class="panel-body">
+            <h4><%= link_to video.title, video %></h4>
+            <p><%= video.description %></p>
+            </br><a href="<%= video.video_link %>"></a>
+          </div>
+        </section>
+      </div>
+      <% end %>
+    </div>
+  </section>
+</body>
