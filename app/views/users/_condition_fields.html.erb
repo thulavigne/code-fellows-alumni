@@ -3,8 +3,10 @@
     <%= a.attribute_select associations: [:address, :projects, :links] %>
   <% end %>
   <%= f.predicate_select %>
-  <%= f.value_fields do |v| %>
-    <%= v.text_field :value %>
-  <% end %>
+  <div style="padding:20px 0;">
+    <%= f.value_fields do |v| %>
+      <%= v.text_field :value %>
+    <% end %>
+  </div>
   <%= link_to (t "users.index.remove"), '#', class: "remove_fields" %>
 </div>
