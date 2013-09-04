@@ -48,7 +48,7 @@ gem 'countries'
 gem 'country_select'
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'dotenv-rails', :groups => [:development, :test]
+gem 'dotenv-rails'
 
 # Search
 gem "ransack"
