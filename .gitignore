@@ -22,3 +22,6 @@ breakman.html
 
 # Ignore dotenv file
 /.env
+
+# Ignore application configuration
+/config/application.yml
