@@ -4,13 +4,13 @@
     <div class="form-group m-t-lg">
       <label class="col-sm-3 control-label"><%= t ".profile_picture" %></label>
       <div class="col-sm-4 media m-t-none">
-        <div class="pull-left text-center media-lg thumb-lg padder-v"><%= image_tag @user.avatar.url(:medium), class: "img-circle" %></div>
+        <div class="pull-left text-center media-lg thumb-lg padder-v"><%= image_tag @user.image_url(:medium).to_s, class: "img-circle" %></div>
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-3 control-label">Change Photo</label>
       <div class="col-sm-4">
-        <%= f.file_field :avatar %>
+        <%= f.file_field :image %>
       </div>
     </div>
     <div class="form-group">

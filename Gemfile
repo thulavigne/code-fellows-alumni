@@ -40,6 +40,12 @@ gem 'devise'
 
 gem "paperclip", "~> 3.0"
 
+# Image uploads
+gem 'carrierwave'
+
+# To store images on S3 (works in conjunction with carrierwave)
+gem 'fog'
+
 gem 'rmagick', '2.13.2'
 
 gem 'simple_form'
@@ -52,6 +58,9 @@ gem 'dotenv-rails'
 
 # Search
 gem "ransack"
+
+# Setting env variables
+gem 'figaro'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

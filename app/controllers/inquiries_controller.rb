@@ -8,7 +8,8 @@ class InquiriesController < ApplicationController
   def create
     @inquiry = Inquiry.new(params[:inquiry])
     if @inquiry.deliver(@user)
-      render :thank_you
+      flash[:notice] = "Thank you! Your inquiry has been sent and I'll be in touch as soon as possible."
+      redirect_to @user
     else
       render :new
     end

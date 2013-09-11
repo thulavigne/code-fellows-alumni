@@ -46,7 +46,7 @@
                     <tbody>
                       <% @projects.each do |p| %>
                         <tr>
-                          <td><%= link_to (image_tag p.attach.url(:thumb)), p %></td>
+                          <td><%= link_to (image_tag p.image_url(:thumb).to_s), p %></td>
                           <td><%= link_to p.title, project_path(p) %></td>
                           <td><%= link_to p.description, project_path(p) %></td>
                           <% if current_user == @user %>

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation,
     :remember_me, :first_name, :last_name, :phone_number,
     :introduction, :desired_job_situation, :desired_job_location,
-    :skills, :avatar, :preferred_language, :username, :twitter_handle
+    :skills, :preferred_language, :username, :twitter_handle, :image
   # attr_accessible :title, :body
 
   validates_presence_of :username
@@ -21,10 +21,11 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :videos
   has_many :links, :as => :owner
-  has_attached_file :avatar, :styles => { :medium => "200x200>", :small => "150x150>", :thumb => "100x100>" }, :default_url => "http://pickaface.net/avatar/ppic.jpg"
   delegate :street_address, :city, :state, :postal_code, :country,
             :to => :address,
             :allow_nil => true
+
+  mount_uploader :image, UserImageUploader
 
   def self.ransackable_attributes(auth_object = nil)
     %w( email first_name last_name phone_number introduction desired_job_situation desired_job_location skills preferred_language username twitter_handle ) + _ransackers.keys
