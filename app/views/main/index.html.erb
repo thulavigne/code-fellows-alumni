@@ -154,7 +154,7 @@
             <div class="col-lg-6">
               <div class="random_user">
                 <div class="user_img">
-                  <%= link_to (image_tag @random_user.avatar.url(:medium), class: "img-circle"),
+                  <%= link_to (image_tag @random_user.image_url(:medium).to_s, class: "img-circle"),
                       @random_user %>
                 </div>
                 <div class="user_intro">
@@ -172,7 +172,7 @@
             <div class="col-lg-6">
               <div class="random_user">
                 <div class="user_img">
-                  <%= link_to (image_tag @random_user2.avatar.url(:medium), class: "img-circle"),
+                  <%= link_to (image_tag @random_user2.image_url(:medium).to_s, class: "img-circle"),
                       @random_user2 %>
                 </div>
                 <div class="user_intro">

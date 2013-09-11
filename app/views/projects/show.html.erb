@@ -54,9 +54,9 @@
               <%= link_to (t " application.add_link"), new_project_link_path(@object) %>
             <% end %>
             </br></br>
-            <% if @project.attach.exists? then %>
+            <% if @project.image_url.present? then %>
               <b><%= t "application.screenshot" %>:</b></br>
-              <div class="col-md-9 col-md-offset-1"><%= image_tag @project.attach.url %></div>
+              <div class="col-md-9 col-md-offset-1"><%= image_tag @project.image_url.to_s %></div>
             <% end %>
           </div>
         </section>
