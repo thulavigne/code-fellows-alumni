@@ -80,6 +80,10 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
+    user_by_twitter = where("twitter_handle = ?", ("@" + auth.extra.raw_info.screen_name))
+    if user_by_twitter.first
+      return user_by_twitter.first
+    end
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
