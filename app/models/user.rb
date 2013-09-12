@@ -136,14 +136,14 @@ class User < ActiveRecord::Base
     search_results = Array.new
     exact_match_count = 0
     self.all.each  do |e|
-      if ( e.first_name.downcase == strings.first && e.last_name.downcase == strings.last )
+      if ( e.first_name.to_s.downcase == strings.first && e.last_name..to_s.downcase == strings.last )
         search_results.insert(0,e)
         exact_match_count += 1
       end
-      if ( (strings.include? e.first_name.downcase) && (strings.include? e.last_name.downcase) )
+      if ( (strings.include? e.first_name.to_s.downcase) && (strings.include? e.last_name.to_s.downcase) )
         search_results.insert(exact_match_count, e)
       end
-      if ( (strings.include? e.first_name.downcase) || (strings.include? e.last_name.downcase) )
+      if ( (strings.include? e.first_name..to_s.downcase) || (strings.include? e.last_name.to_s.downcase) )
         search_results << e
       end
     end

@@ -671,6 +671,11 @@ pre code {
   background-color: transparent;
   border: 0;
 }
+
+.link {
+  padding-left: 30px;
+}
+
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
