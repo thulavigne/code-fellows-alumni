@@ -143,7 +143,7 @@ class User < ActiveRecord::Base
       if ( (strings.include? e.first_name.to_s.downcase) && (strings.include? e.last_name.to_s.downcase) )
         search_results.insert(exact_match_count, e)
       end
-      if ( (strings.include? e.first_name..to_s.downcase) || (strings.include? e.last_name.to_s.downcase) )
+      if ( (strings.include? e.first_name.to_s.downcase) || (strings.include? e.last_name.to_s.downcase) )
         search_results << e
       end
     end
