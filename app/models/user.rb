@@ -84,6 +84,11 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.username = auth.info.nickname
+      screen_name = auth.extra.raw_info.screen_name
+      if screen_name.present?
+        user.twitter_handle = "@" + auth.extra.raw_info.screen_name
+      end
+      user.introduction = auth.extra.raw_info.description
     end
   end
 
