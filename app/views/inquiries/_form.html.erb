@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
     <%= f.label :name, "Your name", class: "control-label" %><br/>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_field :name, class: "form-control", :value => (if current_user then current_user.full_name else '' end) %>
   </div>
 
   <div class="form-group">
