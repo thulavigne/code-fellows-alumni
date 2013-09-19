@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  before_filter :set_locale
+  before_filter :set_locale, :httpauth
   protect_from_forgery
 
   def after_sign_in_path_for(resource)
@@ -35,5 +35,13 @@ private
 
   def default_url_options(options = {})
     {locale: I18n.locale}
+  end
+
+  def httpauth
+    unless Rails.env.development? || Rails.env.test?
+      authenticate_or_request_with_http_basic do |user_name, password|
+        user_name == ENV["CODEFELLOWS_PREVIEW_USERNAME"] && password == ENV["CODEFELLOWS_PREVIEW_PASSWORD"]
+      end
+    end
   end
 end
